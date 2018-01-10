@@ -3,8 +3,8 @@ import qs from 'qs'
 // axios网络请求
 function ajax (Vue, axios) {
   if (ajax.installed) return
-  // Vue.prototype.$baseURL = axios.defaults.baseURL = (process.env.NODE_ENV === 'production') ? 'http://web2.sf-trailernet.com/' : 'http://web.sf-trailernet.com/'
-  Vue.prototype.$baseURL = axios.defaults.baseURL = (process.env.NODE_ENV === 'production') ? 'http://web2.sf-trailernet.com/' : 'http://192.168.1.125:8081/xhtrailer_main_web/'
+  Vue.prototype.$baseURL = axios.defaults.baseURL = (process.env.NODE_ENV === 'production') ? 'http://web2.sf-trailernet.com/' : 'http://web2.sf-trailernet.com/'
+  // Vue.prototype.$baseURL = axios.defaults.baseURL = (process.env.NODE_ENV === 'production') ? 'http://web2.sf-trailernet.com/' : 'http://192.168.1.125:8081/xhtrailer_main_web/'
   // 序列化对象
   Vue.prototype.$serialize = params => qs.stringify(params)
   Vue.prototype.$ajax = function (params, method = 'get') {

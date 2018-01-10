@@ -1,3 +1,23 @@
+/* element-ui 修改默认样式 */
+.el-checkbox__input {
+  &.is-focus .el-checkbox__inner {
+    border-color: #f16422;
+  }
+  &.is-checked .el-checkbox__inner {
+    background-color: #fff;
+    border-color: #f16422;
+  }
+}
+.el-checkbox__inner {
+  &, &:hover {
+    border-color: #f16422;
+  }
+  &:after {
+    border: 2px solid #f16121;
+    border-left: 0;
+    border-top: 0;
+  }
+}
 /* 头部栏 */
 .header-box {
   position: fixed;
@@ -233,54 +253,41 @@
 }
 .login-form-box {
   position: absolute;
-  top: 60%;
+  top: 50%;
   left: 50%;
-  transform: translate(-50%, -65%);
-  width: 370px;
-  height: 432px;
-  background: #fff;
-  border-radius: 6px;
+  width: 800px;
+  height: 600px;
+  padding: 28px 0 0;
+  text-align: center;
+  background: rgba(70, 73, 83, .95);
+  border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
 }
 .login-title {
-  height: 50px;
-  line-height: 50px;
+  display: inline-block;
+  line-height: 96px;
+  padding-left: 108px;
+  font-size: 32px;
   color: #fff;
-  border-radius: 6px 6px 0 0;
-  background: #637495;
-  .title-zh {
-    font-size: 22px;
-    text-align: center;
-    span {
-      font-size: 16px;
-    }
-  }
-  .title-en {
-    font-size: 20px;
-    text-align: center;
-  }
-}
-.login-logo {
-  height: 88px;
-  background: url(../images/login_logo_icon.png) no-repeat center center;
+  background: url(../images/login_logo_icon.png) no-repeat 0 center;
 }
 .logo-form {
-  width: 340px;
+  width: 600px;
   margin: 0 auto;
   .el-form {
-    padding-top: 18px;
-    border-top: 1px solid #dcdcdc;
-    border-bottom: 1px solid #dcdcdc;
+    padding-top: 42px;
   }
   .el-form-item {
-    margin-bottom: 18px;
+    margin-bottom: 38px;
   }
   .el-form-item__content {
-    line-height: 42px;
+    line-height: 60px;
   }
   .el-input__inner {
-    height: 42px;
-    border-radius: 0;
+    height: 60px;
+    border-radius: 30px;
   }
   .el-input-group__prepend {
     width: 54px;
@@ -294,16 +301,53 @@
     background: #f5f5f5 url(../images/login_pass_icon.png) no-repeat center center;
   }
   .login-extra {
-    padding-left: 10px;
-    line-height: 50px;
+    line-height: 24px;
+    .el-checkbox__input {
+      height: 24px;
+      float: left;
+    }
+    .el-checkbox__inner {
+      width: 24px;
+      height: 24px;
+      &:after {
+        top: 2px;
+        left: 7px;
+        width: 6px;
+        height: 12px;
+      }
+    }
+    .el-checkbox__label {
+      float: left;
+      font-size: 15px;
+      color: #8f9bb1;
+    }
+    .el-button {
+      padding: 4px 10px;
+      font-size: 15px;
+      color: #8f9bb1;
+      border: 0;
+      background: rgba(0, 0, 0, 0);
+      &.active {
+        color: #f16422;
+      }
+      &+.el-button {
+        margin-left: 0;
+      }
+    }
+    .divide-line {
+      border-left: 1px solid #8f9bb1;
+    }
   }
   .submit-btn {
-    width: 100%;
-    height: 42px;
-    font-size: 18px;
+    width: 400px;
+    height: 80px;
+    margin-top: 40px;
+    font-size: 36px;
     color: #fff;
     border: 0;
-    background: #2e75b3;
+    border-radius: 40px;
+    background: -webkit-linear-gradient(left, #f48834, #f0581c);
+    background: linear-gradient(to right, #f48834, #f0581c);
   }
 }
 .wrap-box {

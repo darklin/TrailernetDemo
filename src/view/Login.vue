@@ -1,32 +1,25 @@
 <template>
   <div class="login-box" :style="bgImg">
-    <div class="header-box clearfix">
-      <div class="logo fl"></div>
-      <div class="switch-lang fr">
-        <a class="lang-item" :class="{'active':langType==='zh'}" @click="switchLang('zh')">简体中文</a><a class="lang-item" :class="{'active':langType==='en'}" @click="switchLang('en')">English</a>
-      </div>
-    </div>
     <div class="login-form-box" @keyup.enter="submitHandle">
-      <div class="login-title">
-        <div class="title-zh" v-if="langType === 'zh'">{{$t('login.title')}}</div>
-        <div class="title-en" v-else>{{$t('login.title')}}</div>
-      </div>
+      <div class="login-title">{{$t('login.title')}}</div>
       <div class="logo-form">
-        <div class="login-logo"></div>
         <el-form :model="loginForm" ref="loginForm">
           <el-form-item prop="userName" :rules="[{required: true, message: $t('login.username') + $t('common.beRequired')}]" class="login-user">
             <el-input v-model="loginForm.userName" :placeholder="$t('login.username')">
-              <template slot="prepend"></template>
+              <template scope="prepend"></template>
             </el-input>
           </el-form-item>
           <el-form-item prop="passWord" :rules="[{required: true, message: $t('login.password') + $t('common.beRequired')}]" class="login-pass">
             <el-input type="password" v-model="loginForm.passWord" :placeholder="$t('login.password')">
-              <template slot="prepend"></template>
+              <template scope="prepend"></template>
             </el-input>
           </el-form-item>
         </el-form>
         <div class="login-extra clearfix">
-          <el-checkbox v-model="checkPass">{{$t('login.rememberPass')}}</el-checkbox>
+          <el-checkbox class="fl" v-model="checkPass">{{$t('login.rememberPass')}}</el-checkbox>
+          <div class="fr">
+            <el-button :class="{'active':langType==='zh'}" @click="switchLang('zh')">中文</el-button><span class="divide-line"></span><el-button :class="{'active':langType==='en'}" @click="switchLang('en')">EN</el-button>
+          </div>
         </div>
         <el-button :loading="isLoading" @click="submitHandle" class="submit-btn">{{$t('login.submitText')}}</el-button>
       </div>
@@ -59,7 +52,7 @@ export default {
       checkPass: true,
       isLoading: false,
       bgImg: {
-        background: `url(${require('@/assets/images/login_bg.png')}) no-repeat center center`,
+        background: `url(${require('@/assets/images/login_bg.jpg')}) no-repeat center center`,
         backgroundSize: 'cover'
       }
     }
