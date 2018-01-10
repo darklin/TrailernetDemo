@@ -287,18 +287,24 @@
   }
   .el-input__inner {
     height: 60px;
-    border-radius: 30px;
+    font-size: 18px;
+    border-radius: 0 30px 30px 0;
+    border: 1px solid #bfcbd9;
+    border-left: 0;
+  }
+  .is-error .el-input-group__prepend {
+    border-color: #ff4949;
   }
   .el-input-group__prepend {
     width: 54px;
     padding: 0;
-    border-radius: 0;
+    border-radius: 30px 0 0  30px;
   }
   .login-user .el-input-group__prepend {
-    background: #f5f5f5 url(../images/login_user_icon.png) no-repeat center center;
+    background: #fff url(../images/login_user_icon.png) no-repeat 20px center;
   }
   .login-pass .el-input-group__prepend {
-    background: #f5f5f5 url(../images/login_pass_icon.png) no-repeat center center;
+    background: #fff url(../images/login_pass_icon.png) no-repeat 20px center;
   }
   .login-extra {
     line-height: 24px;

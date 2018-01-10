@@ -6,12 +6,12 @@
         <el-form :model="loginForm" ref="loginForm">
           <el-form-item prop="userName" :rules="[{required: true, message: $t('login.username') + $t('common.beRequired')}]" class="login-user">
             <el-input v-model="loginForm.userName" :placeholder="$t('login.username')">
-              <template scope="prepend"></template>
+              <template slot="prepend"></template>
             </el-input>
           </el-form-item>
           <el-form-item prop="passWord" :rules="[{required: true, message: $t('login.password') + $t('common.beRequired')}]" class="login-pass">
             <el-input type="password" v-model="loginForm.passWord" :placeholder="$t('login.password')">
-              <template scope="prepend"></template>
+              <template slot="prepend"></template>
             </el-input>
           </el-form-item>
         </el-form>
