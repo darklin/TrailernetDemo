@@ -1,13 +1,18 @@
 <template>
   <div class="wrap-box" :class="{'shrink-wrap': !isOpen, 'no-wrap': hideMenu}">
     <div class="header-box clearfix" v-if="!hideHead">
-      <div class="header-logo fl"><img :src="logoPath"></div>
       <div class="account fr">
         <span class="account-user">{{$t("top.hello")}} <i>{{userName}}</i></span>
-        <a class="account-item" @click="changePass">{{$t('sys.modifyPassword')}}</a><a class="account-item" @click="logoutHandle">{{$t('top.exit')}}</a>
+        <a class="account-item password-item" @click="changePass"></a><a class="account-item logout-item" @click="logoutHandle"></a>
       </div>
     </div>
     <div class="menu-box" v-if="!hideMenu">
+      <div class="header-logo">
+        <img :src="logoPath">
+      </div>
+      <div class="shrink-area clearfix">
+        <el-button class="shrink-btn fr" @click="openHandle"></el-button>
+      </div>
       <el-menu :default-active="menuActive" :default-openeds="openeds" router v-if="isOpen">
         <template v-for="item,key in menus">
           <!-- 仅一级菜单 -->
@@ -28,9 +33,6 @@
       </el-menu>
       <div v-else>
         <div v-for="item,key in menus" class="menu-icon" :class="key+'-icon'" @click="menuHandle(item['name'])"><el-badge v-if="key === 'alarm'" :value="num" /></div>
-      </div>
-      <div class="clearfix">
-        <el-button class="shrink-menu fr" @click="openHandle"></el-button>
       </div>
     </div>
     <router-view></router-view>
@@ -66,7 +68,6 @@ export default {
     }
   },
   beforeRouteUpdate (to, from, next) {
-    debugger
     if (to.name === 'BigData') {
       window.open(window.location.pathname + '#' + '/home/bigData')
     } else {

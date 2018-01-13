@@ -18,89 +18,74 @@
     border-top: 0;
   }
 }
+.wrap-box {
+  min-width: 1260px;
+  height: 100%;
+}
+.content-box {
+  padding: 82px 10px 20px 228px;
+}
 /* 头部栏 */
 .header-box {
   position: fixed;
   top: 0;
-  width: 100%;
-  height: 60px;
-  background: #637495;
+  left: 218px;
+  right: 0;
+  height: 72px;
+  background: #4d5667;
   z-index: 99;
-  border-bottom: 1px solid #637495;
-  margin-bottom: 10px;
-  .logo {
-    line-height: 60px;
-    margin-left: 24px;
-    padding-left: 96px;
-    font-size: 16px;
-    color: #000;
-    background: url(../images/brand_logo_icon.png) no-repeat 0 center;
-  }
-  .header-logo {
-    margin-left: 24px;
-    height: 60px;
-    img {
-      max-height: 60px;
-      vertical-align: middle;
-    }
-    &:after {
-      content: "";
-      display: inline-block;
-      height: 100%;
-      vertical-align: middle;
-    }
-  }
-  .switch-lang {
-    line-height: 20px;
-    margin-top: 20px;
-    margin-right: 100px;
-    font-size: 15px;
-    color: #000;
-    .lang-item {
-      display: inline-block;
-      padding: 0 8px;
-      cursor: pointer;
-      &.active {
-        color: #FFFFFF;
-      }
-      &:first-child {
-        border-right: 1px solid #fff;
-      }
-    }
-  }
   .account {
-    line-height: 16px;
-    margin-top: 22px;
-    margin-right: 30px;
-    font-size: 14px;
-    color: #FFFFFF;
+    line-height: 72px;
+    padding-right: 32px;
   }
   .account-user {
-    padding-right: 50px;
-    i {
-      color: #FFFFFF;
-    }
+    padding-right: 32px;
+    font-size: 16px;
+    color: #909bad;
+    vertical-align: middle;
   }
   .account-item {
     display: inline-block;
-    padding: 0 6px;
+    width: 40px;
+    height: 40px;
+    margin: 0 3px;
+    vertical-align: middle;
     cursor: pointer;
-    &:last-child {
-      border-left: 1px solid #fff;
+    &.password-item {
+      background: url(../images/password_icon.png) no-repeat center center;
+    }
+    &.logout-item {
+      background: url(../images/logout_icon.png) no-repeat center center;
     }
   }
 }
 /* 侧边栏菜单 */
 .menu-box {
   position: fixed;
-  border-radius:5px;
-  top: 70px;
+  top: 0;
   bottom: 0;
-  width: 217px;
-  background: #F0F0F0;
-  border-right: 1px solid #dcdcdc;
+  width: 218px;
+  background: #353b47;
   overflow-y: auto;
   z-index: 99;
+  .header-logo {
+    line-height: 80px;
+    text-align: center;
+    img {
+      display: inline-block;
+      max-height: 60px;
+      vertical-align: middle;
+    }
+  }
+  .shrink-area {
+    padding-bottom: 12px;
+  }
+  .shrink-btn {
+    width: 16px;
+    height: 16px;
+    border: 0;
+    background: url(../images/shrink_icon.png) no-repeat center center;
+  }
   .el-menu {
     background: transparent;
   }
@@ -109,18 +94,54 @@
     height: 48px;
     line-height: 48px;
     font-size: 15px;
-    color: #3B3B3B;
+    color: #929ba4;
   }
-  .el-submenu .el-menu {
-    background: #F0F0F0;
-    margin-left: 12px;
-    margin-right: 12px;
+  .el-menu-item {
+    &.is-active {
+      border-left: 2px solid #f48834;
+      color: #f48834;
+      background: #3c4451;
+      &:before {
+        content: "";
+        margin-left: -2px;
+      }
+      .index-icon {
+        background: url(../images/menu_index_active_icon.png) no-repeat 0 center;
+      }
+      .monitor-icon {
+        background: url(../images/menu_monitor_active_icon.png) no-repeat 0 center;
+      }
+      .bigData-icon {
+        background: url(../images/menu_statisticsReport_active_icon.png) no-repeat 0 center;
+      }
+    }
   }
-  .el-submenu .el-menu-item {
-    font-size: 14px;
+  .el-submenu {
+    .el-menu-item {
+      font-size: 14px;
+      &:before {
+        content: "";
+        margin-left: 0;
+        padding-left: 16px;
+      }
+      &.is-active:before {
+        padding-left: 14px;
+      }
+    }
+  }
+  .el-menu-item-group__title {
+    color: #4d5965;
+    &:before {
+      content: "";
+      padding-left: 26px;
+    }
+  }
+  .el-submenu__title:hover,
+  .el-menu-item:hover {
+    background-color: #3c4451;
   }
   .menu-icon {
-    padding: 24px 18px;
+    padding: 14px 18px;
   }
   .index-icon {
     background: url(../images/menu_index_icon.png) no-repeat 0 center;
@@ -140,31 +161,18 @@
   .statisticsReport-icon {
     background: url(../images/menu_statisticsReport_icon.png) no-repeat 0 center;
   }
-  .maintenance-icon {
-    background: url(../images/menu_maintenance_icon.png) no-repeat 0 center;
-  }
   .archives-icon {
     background: url(../images/menu_archives_icon.png) no-repeat 0 center;
-  }
-  .configuration-icon {
-    background: url(../images/menu_configuration_icon.png) no-repeat 0 center;
   }
   .setting-icon {
     background: url(../images/menu_system_icon.png) no-repeat 0 center;
   }
-  .el-menu-item.is-active {
-    color: #000;
-    background: #E5E7EA;
-    .index-icon {
-      background: url(../images/menu_index_active_icon.png) no-repeat 0 center;
-    }
-    .monitor-icon {
-      background: url(../images/menu_monitor_active_icon.png) no-repeat 0 center;
-    }
-  }
   .el-submenu.is-active {
     .el-submenu__title {
-      color: #000;
+      color: #f48834;
+    }
+    .el-submenu__icon-arrow {
+      color: #fff;
     }
     .history-icon {
       background: url(../images/menu_history_active_icon.png) no-repeat 0 center;
@@ -175,14 +183,8 @@
     .statisticsReport-icon {
       background: url(../images/menu_statisticsReport_active_icon.png) no-repeat 0 center;
     }
-    .maintenance-icon {
-      background: url(../images/menu_maintenance_active_icon.png) no-repeat 0 center;
-    }
     .archives-icon {
       background: url(../images/menu_archives_active_icon.png) no-repeat 0 center;
-    }
-    .configuration-icon {
-      background: url(../images/menu_configuration_active_icon.png) no-repeat 0 center;
     }
     .setting-icon {
       background: url(../images/menu_system_active_icon.png) no-repeat 0 center;
@@ -196,15 +198,11 @@
       border: 0;
     }
   }
-  .shrink-menu {
-    width: 49px;
-    height: 25px;
-    border-radius: 3px 0 0 3px;
-    border: 0;
-    background: url(../images/shrink_icon.png) no-repeat center center;
-  }
 }
 .shrink-wrap {
+  .header-box {
+    left: 50px;
+  }
   .menu-box {
     width: 50px;
     .menu-icon {
@@ -218,12 +216,12 @@
         top: 4px;
       }
     }
-    .shrink-menu {
+    .shrink-btn {
       background: url(../images/spread_icon.png) no-repeat center center;
     }
   }
   .content-box {
-    padding-left: 50px;
+    padding-left: 60px;
   }
   .monitor-status-list {
     left: 50px;
@@ -355,13 +353,6 @@
     background: -webkit-linear-gradient(left, #f48834, #f0581c);
     background: linear-gradient(to right, #f48834, #f0581c);
   }
-}
-.wrap-box {
-  min-width: 1260px;
-  height: 100%;
-}
-.content-box {
-  padding: 71px 10px 20px 228px;
 }
 /* 首页 */
 .index-query-box {
