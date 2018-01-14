@@ -32,7 +32,7 @@
         </template>
       </el-menu>
       <div v-else>
-        <div v-for="item,key in menus" class="menu-icon" :class="key+'-icon'" @click="menuHandle(item['name'])"><el-badge v-if="key === 'alarm'" :value="num" /></div>
+        <div v-for="item,key in menus" class="menu-icon" :class="setMenuClass(item, key)" @click="menuHandle(item['name'])"><el-badge v-if="key === 'alarm'" :value="num" /></div>
       </div>
     </div>
     <router-view></router-view>
@@ -184,6 +184,23 @@ export default {
     // 菜单展开和收缩
     openHandle () {
       this.isOpen = !this.isOpen
+    },
+    setMenuClass (item, key) {
+      let active = this.menuActive
+      let subMenu = item.subMenu
+      let activeClass = `${key}-icon ${key}-active-icon`
+      if (key === active) {
+        return activeClass
+      } else if (subMenu) {
+        for (let subKey in subMenu) {
+          if (subKey === active) {
+            return activeClass
+          } else if (subMenu[subKey]['childMenu']) {
+            if (subMenu[subKey]['childMenu'][active]) return activeClass
+          }
+        }
+      }
+      return `${key}-icon`
     }
   }
 }

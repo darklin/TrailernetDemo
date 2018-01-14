@@ -1,6 +1,6 @@
 <template>
   <div class="content-box">
-    <div class="index-query-box clearfix">
+    <div class="index-query-box header-area clearfix">
       <el-form :inline="true" :model="searchForm" class="search-form fl">
         <el-form-item :label="$t('common.organization')">
           <el-select class="search-from-multiple" v-model="orgIDs" multiple clearable placeholder="" @change="changeHandle">
@@ -14,46 +14,67 @@
     <div class="index-count-box">
       <div class="index-title">{{$t('car.carStatisticBoard')}}</div>
       <div class="index-status-table">
-        <el-row class="small-row">
-          <el-col :span="6" class="count-title">{{$t('monitor.totalcar')}}</el-col>
-          <el-col :span="2" class="count-total">{{carTotal}}</el-col>
-          <el-col :span="16">&nbsp;</el-col>
-        </el-row>
-        <el-row class="small-row">
-          <el-col :span="6">{{$t('golbal.run')}}</el-col>
-          <el-col :span="2">{{runTotal}}</el-col>
-          <el-col :span="6">{{$t('golbal.stop')}}</el-col>
-          <el-col :span="2">{{stopTotal}}</el-col>
-          <el-col :span="6">{{$t('golbal.park')}}</el-col>
-          <el-col :span="2">{{parkTotal}}</el-col>
-        </el-row>
-        <el-row class="large-row">
+        <el-row :gutter="16">
           <el-col :span="6">
-            <img src="../assets/images/run_normal_img.png" :title="$t('golbal.run') + ' ' + $t('golbal.boxUpAndConnect')">
+            <div class="status-total">
+              <div class="status-label">{{$t('monitor.totalcar')}}</div>
+              <div class="status-text">{{carTotal}}</div>
+            </div>
           </el-col>
-          <el-col :span="2"><span @click="monitorHandle(carStatus.scb, 3)">{{carStatus.scb}}</span></el-col>
           <el-col :span="6">
-            <img src="../assets/images/stop_normal_img.png" :title="$t('golbal.stop') + ' ' + $t('golbal.boxUpAndConnect')">
+            <div class="status-item">
+              <div class="status-label">{{$t('golbal.run')}}</div>
+              <div class="status-text">{{runTotal}}</div>
+              <div class="status-img">
+                <img src="../assets/images/run_null_img.png" :title="$t('golbal.run') + ' ' + $t('golbal.notBoxUpAndConnect')">
+              </div>
+              <div class="status-num">
+                <span @click="monitorHandle(carStatus.scnob, 4)">{{carStatus.scnob}}</span>
+              </div>
+              <div class="status-img">
+                <img src="../assets/images/run_normal_img.png" :title="$t('golbal.run') + ' ' + $t('golbal.boxUpAndConnect')">
+              </div>
+              <div class="status-num">
+                <span @click="monitorHandle(carStatus.scb, 3)">{{carStatus.scb}}</span>
+              </div>
+            </div>
           </el-col>
-          <el-col :span="2"><span @click="monitorHandle(carStatus.noscb, 5)">{{carStatus.noscb}}</span></el-col>
           <el-col :span="6">
-            <img src="../assets/images/park_normal_img.png" :title="$t('golbal.park') + ' ' + $t('golbal.boxUpAndNotConnect')">
+            <div class="status-item">
+              <div class="status-label">{{$t('golbal.stop')}}</div>
+              <div class="status-text">{{stopTotal}}</div>
+              <div class="status-img">
+                <img src="../assets/images/stop_null_img.png" :title="$t('golbal.stop') + ' ' + $t('golbal.notBoxUpAndConnect')">
+              </div>
+              <div class="status-num">
+                <span @click="monitorHandle(carStatus.noscnob, 6)">{{carStatus.noscnob}}</span>
+              </div>
+              <div class="status-img">
+                <img src="../assets/images/stop_normal_img.png" :title="$t('golbal.stop') + ' ' + $t('golbal.boxUpAndConnect')">
+              </div>
+              <div class="status-num">
+                <span @click="monitorHandle(carStatus.noscb, 5)">{{carStatus.noscb}}</span>
+              </div>
+            </div>
           </el-col>
-          <el-col :span="2"><span @click="monitorHandle(carStatus.nocb, 1)">{{carStatus.nocb}}</span></el-col>
-        </el-row>
-        <el-row class="large-row">
           <el-col :span="6">
-            <img src="../assets/images/run_null_img.png" :title="$t('golbal.run') + ' ' + $t('golbal.notBoxUpAndConnect')">
+            <div class="status-item">
+              <div class="status-label">{{$t('golbal.park')}}</div>
+              <div class="status-text">{{parkTotal}}</div>
+              <div class="status-img">
+                <img src="../assets/images/park_null_img.png" :title="$t('golbal.park') + ' ' + $t('golbal.notBoxUpAndNotConnect')">
+              </div>
+              <div class="status-num">
+                <span @click="monitorHandle(carStatus.nocnob, 2)">{{carStatus.nocnob}}</span>
+              </div>
+              <div class="status-img">
+                <img src="../assets/images/park_normal_img.png" :title="$t('golbal.park') + ' ' + $t('golbal.boxUpAndNotConnect')">
+              </div>
+              <div class="status-num">
+                <span @click="monitorHandle(carStatus.nocb, 1)">{{carStatus.nocb}}</span>
+              </div>
+            </div>
           </el-col>
-          <el-col :span="2"><span @click="monitorHandle(carStatus.scnob, 4)">{{carStatus.scnob}}</span></el-col>
-          <el-col :span="6">
-            <img src="../assets/images/stop_null_img.png" :title="$t('golbal.stop') + ' ' + $t('golbal.notBoxUpAndConnect')">
-          </el-col>
-          <el-col :span="2"><span @click="monitorHandle(carStatus.noscnob, 6)">{{carStatus.noscnob}}</span></el-col>
-          <el-col :span="6">
-            <img src="../assets/images/park_null_img.png" :title="$t('golbal.park') + ' ' + $t('golbal.notBoxUpAndNotConnect')">
-          </el-col>
-          <el-col :span="2"><span @click="monitorHandle(carStatus.nocnob, 2)">{{carStatus.nocnob}}</span></el-col>
         </el-row>
       </div>
     </div>
@@ -61,7 +82,6 @@
       <div class="index-title">{{$t('report.MonthReport')}}</div>
       <el-table
         :data="orgData"
-        border
         style="width: 100%">
         <el-table-column
           type="index"
@@ -99,12 +119,10 @@
         </el-table-column>
       </el-table>
     </div>
-
     <div class="index-count-box">
       <div class="index-title">{{$t('car.alarmStatic')}}</div>
       <el-table
         :data="alarmData"
-        border
         style="width: 100%">
         <el-table-column
           type="index"
