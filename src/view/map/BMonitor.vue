@@ -42,7 +42,6 @@
       <div class="monitor-table-body" v-if="isTableOpen">
         <el-table
           :data="tableData"
-          border
           :row-class-name="highlightRow"
           style="width: 100%">
           <el-table-column

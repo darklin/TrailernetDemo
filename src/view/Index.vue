@@ -9,7 +9,6 @@
         </el-form-item>
       </el-form>
       <el-button :loading="isLoading" class="refresh-btn fr"  @click="refreshHandle">{{$t('index.refreshBtn')}}</el-button>
-      <!-- <el-button :loading="isLoading" class="search-btn fl"  @click="searchHandle">{{$t('common.search')}}</el-button> -->
     </div>
     <div class="index-count-box">
       <div class="index-title">{{$t('car.carStatisticBoard')}}</div>
@@ -80,44 +79,7 @@
     </div>
     <div class="index-count-box">
       <div class="index-title">{{$t('report.MonthReport')}}</div>
-      <el-table
-        :data="orgData"
-        style="width: 100%">
-        <el-table-column
-          type="index"
-          :label="$t('index.indexField')"
-          width="80" 
-          align="center"
-          header-align="center">
-        </el-table-column>
-        <el-table-column
-          prop="attribute"
-          :label="$t('index.attributeField')"
-          header-align="center"
-          min-width="120">
-        </el-table-column>
-        <el-table-column
-          prop="averageValue"
-          :label="$t('index.averageField')"
-          header-align="center"
-          min-width="120">
-        </el-table-column>
-        <el-table-column
-          prop="totalValue"
-          :label="$t('index.totalField')"
-          header-align="center"
-          min-width="120">
-        </el-table-column>
-        <el-table-column
-          :label="$t('index.rankField')"
-          width="180"
-          header-align="center"
-          align="center">
-          <template scope="scope">
-            <el-button class="underline-btn" @click="rankHandle(scope.$index, scope.row.attribute)" type="text" size="small">{{$t('index.rankBtn')}}</el-button>
-          </template>
-        </el-table-column>
-      </el-table>
+      <v-swiper :data="orgData" :rankFn="rankHandle"/>
     </div>
     <div class="index-count-box">
       <div class="index-title">{{$t('car.alarmStatic')}}</div>
@@ -184,8 +146,8 @@
             <div v-else>0</div>
           </template>
         </el-table-column>
-        <!--
-        <el-table-column
+
+        <!-- <el-table-column
           prop="highTemp"
           :label="$t('carAlarm.highTemperatureTire')"
           min-width="190" 
@@ -224,8 +186,8 @@
             </div>
             <div v-else>{{scope.row.lowPressure}}</div>
           </template>
-        </el-table-column>
-      -->
+        </el-table-column> -->
+
         <el-table-column
           prop="airLowPressure"
           :label="$t('carAlarm.lowAirPressure')"
@@ -274,6 +236,7 @@ import IdleList from '@/components/IdleList'
 import OfflineList from '@/components/OfflineList'
 import ABSList from '@/components/ABSList'
 import PSIList from '@/components/PSIList'
+import VSwiper from '@/components/VSwiper'
 export default {
   name: 'index',
   data () {
@@ -447,7 +410,8 @@ export default {
     'idle-list': IdleList,
     'offline-list': OfflineList,
     'abs-list': ABSList,
-    'psi-list': PSIList
+    'psi-list': PSIList,
+    VSwiper
   }
 }
 </script>
