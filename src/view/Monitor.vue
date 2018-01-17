@@ -14,7 +14,7 @@ export default {
     // 判断语言类型
     // 中文加载高德地图
     // 否则加载google地图
-    let type = this.$i18n.locale === 'zh' ? 'b' : 'g'
+    let type = this.$i18n.locale === 'zh' ? 'b' : 'b'
     return {
       type
     }

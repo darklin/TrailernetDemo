@@ -1215,7 +1215,7 @@
   top: -60px;
   left: 6px;
   width: 400px;
-  background: #fff;
+  background: rgba(53, 59, 71, .8);
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, .5);
   &.google-map-window {
@@ -1229,8 +1229,7 @@
 .map-window-header {
   position: relative;
   line-height: 36px;
-  background: #30303b 10px;
-  font-size: 14px;
+  font-size: 15px;
   color: #fff;
   text-align: center;
   border-radius: 5px 5px 0 0;
@@ -1251,11 +1250,11 @@
     padding: 2px 0;
     line-height: 18px;
     font-size: 13px;
-    color: #333;
+    color: #dce3ed;
     label {
       display: inline-block;
       vertical-align: top;
-      width: 120px;
+      padding-right: 10px;
     }
     em {
       padding-left: 2em;
@@ -1268,7 +1267,7 @@
 }
 .map-window-footer {
   line-height: 45px;
-  background: #eeeff1;
+  background: rgba(0, 0, 0, .6);
   border-radius: 0 0 5px 5px;
   text-align: center;
   .footer-btn {
@@ -1277,15 +1276,28 @@
     padding: 5px 12px 5px 30px;
     font-size: 14px;
     color: #fff;
-    border-radius: 3px;
+    border-radius: 15px;
     cursor: pointer;
+    position: relative;
+    background: -webkit-linear-gradient(left, #f48834, #f0581c);
+    background: linear-gradient(to right, #f48834, #f0581c);
+    &:before {
+      position: absolute;
+      top: 5px;
+      left: 10px;
+      width: 20px;
+      height: 20px;
+      content: "";
+    }
   }
-  .footer-btn.trail-btn {
-    background: #ed6700 url(../images/monitor_trail_icon.png) no-repeat 8px center;
+  .footer-btn.trail-btn:before {
+    background: url(../images/monitor_trail_icon.png) no-repeat center center;
   }
   .footer-btn.track-btn {
     margin-left: 16px;
-    background: #ed6700 url(../images/monitor_track_icon.png) no-repeat 8px center;
+    &:before {
+      background: url(../images/monitor_track_icon.png) no-repeat 0 center;
+    }
   }
 }
 .BMapLabel {
