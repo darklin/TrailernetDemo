@@ -51,7 +51,7 @@ export default {
             seriesData.push(item['Num'])
           })
           chart.setOption({
-            color: ['#FF0000'],
+            color: ['#f48532'],
             tooltip: {
               trigger: 'axis',
               axisPointer: {            // 坐标轴指示器，坐标轴触发有效
@@ -73,6 +73,9 @@ export default {
                 data: xAxisData,
                 axisTick: {
                   alignWithLabel: true
+                },
+                axisLine: {
+                  show: false
                 }
               }
             ],
@@ -81,7 +84,15 @@ export default {
               name: this.$t('abs.echart.workTimes'),
               nameLocation: 'middle',
               nameGap: 30,
-              minInterval: 1
+              minInterval: 1,
+              splitLine: {
+                lineStyle: {
+                  color: ['#393f4b']
+                }
+              },
+              axisLine: {
+                show: false
+              }
             },
             series: [
               {

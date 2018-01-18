@@ -19,7 +19,6 @@
       <el-button class="table-police-btn" @click="readHandle">{{$t('carAlarm.setIsRead')}}</el-button>
       <el-table
         :data="countData"
-        border
         style="width: 100%"
         @selection-change="handleSelectionChange">
         <el-table-column

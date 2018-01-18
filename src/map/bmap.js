@@ -104,7 +104,7 @@ export const addLabelMarker = (point, icon, text, w = 32, h = 32) => {
   })
   label.setStyle({
     lineHeight: '24px',
-    backgroundColor: '#333',
+    backgroundColor: 'rgba(53, 59, 71, .8)',
     border: 'none'
   })
   marker.setLabel(label)

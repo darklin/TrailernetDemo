@@ -35,7 +35,6 @@
     <div class="table-box">
       <el-table
         :data="countData"
-        border
         style="width: 100%"
         @sort-change="sortChange">
         <el-table-column
@@ -124,7 +123,7 @@ export default {
         tenThousandWorkTimes.push(item['TenAmberTimes'])
       })
       let chart = this.$echarts.init(this.$refs['echarts'])
-      var colors = ['#5793f3', '#d14a61']
+      var colors = ['#f48532', '#03a9f3']
       let option = {
         color: colors,
         title: {},
@@ -145,10 +144,21 @@ export default {
             magicType: {show: true, type: ['line', 'bar']},
             restore: {show: true},
             saveAsImage: {show: true, name: this.$t('abs.activatedTimes')}
+          },
+          iconStyle: {
+            normal: {
+              borderColor: '#95a2b3'
+            },
+            emphasis: {
+              borderColor: '#f48834'
+            }
           }
         },
         calculable: true,
         legend: {
+          textStyle: {
+            color: '#97a3b4'
+          },
           data: [workTimesValue, tenThousandWorkTimesValue],
           itemGap: 5
         },
@@ -161,12 +171,23 @@ export default {
         xAxis: [
           {
             type: 'category',
-            data: LicensePlate
+            data: LicensePlate,
+            axisLine: {
+              show: false
+            }
           }
         ],
         yAxis: [
           {
             type: 'value',
+            splitLine: {
+              lineStyle: {
+                color: ['#393f4b']
+              }
+            },
+            axisLine: {
+              show: false
+            },
             axisLabel: {
               formatter: (a) => {
                 a = +a
@@ -177,11 +198,18 @@ export default {
             }
           }
         ],
+        textStyle: {
+          color: '#87868b'
+        },
         dataZoom: [
           {
             show: true,
             start: 0,
             end: 90,
+            borderColor: '#454a4d',
+            textStyle: {
+              color: '#87868b'
+            },
             height: 20
           },
           {
@@ -191,6 +219,10 @@ export default {
           },
           {
             show: true,
+            borderColor: '#454a4d',
+            textStyle: {
+              color: '#87868b'
+            },
             yAxisIndex: 0,
             filterMode: 'empty',
             width: 20,

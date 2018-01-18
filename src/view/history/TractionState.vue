@@ -23,7 +23,6 @@
     <div class="table-box">
       <el-table
         :data="countData"
-        border
         style="width: 100%"
         @selection-change="handleSelectionChange">
         <el-table-column

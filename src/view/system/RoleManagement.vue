@@ -5,7 +5,6 @@
       <el-button class="table-add-btn" @click="addHandle">{{$t('common.add')}}</el-button>
       <el-table
         :data="countData"
-        border
         style="width: 100%">
         <el-table-column
           type="index"

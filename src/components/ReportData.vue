@@ -87,13 +87,16 @@ export default {
               }
             }
           }
-          var colors = ['#5793f3', '#d14a61']
+          var colors = ['#f48532', '#03a9f3']
           chart.setOption({
             color: colors,
             title: {
               text: chartText,
               x: '50%',
-              textAlign: 'center'
+              textAlign: 'center',
+              textStyle: {
+                color: '#97a3b4'
+              }
             },
             tooltip: {
               trigger: 'axis',
@@ -112,6 +115,14 @@ export default {
                 magicType: {show: true, type: ['line', 'bar']},
                 restore: {show: true},
                 saveAsImage: {show: true, name: chartText}
+              },
+              iconStyle: {
+                normal: {
+                  borderColor: '#95a2b3'
+                },
+                emphasis: {
+                  borderColor: '#f48834'
+                }
               }
             },
             calculable: true,
@@ -124,13 +135,24 @@ export default {
             xAxis: [
               {
                 type: 'category',
-                data: xAxisData
+                data: xAxisData,
+                axisLine: {
+                  show: false
+                }
               }
             ],
             yAxis: [
               {
                 type: 'value',
                 name: '',
+                splitLine: {
+                  lineStyle: {
+                    color: ['#393f4b']
+                  }
+                },
+                axisLine: {
+                  show: false
+                },
                 axisLabel: {
                   formatter: (a) => {
                     a = +a
@@ -141,11 +163,18 @@ export default {
                 }
               }
             ],
+            textStyle: {
+              color: '#87868b'
+            },
             dataZoom: [
               {
                 show: true,
                 start: 0,
                 end: 90,
+                borderColor: '#454a4d',
+                textStyle: {
+                  color: '#87868b'
+                },
                 height: 20
               },
               {
@@ -155,6 +184,10 @@ export default {
               },
               {
                 show: true,
+                borderColor: '#454a4d',
+                textStyle: {
+                  color: '#87868b'
+                },
                 yAxisIndex: 0,
                 filterMode: 'empty',
                 width: 20,

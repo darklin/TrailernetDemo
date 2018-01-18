@@ -18,6 +18,19 @@
     border-top: 0;
   }
 }
+.el-button--text {
+  color: #f48834;
+  &:focus,
+  &:hover {
+    color: #ff760c;
+  }
+}
+.el-dialog__headerbtn {
+  &:focus .el-dialog__close,
+  &:hover .el-dialog__close {
+    color: #f48834;
+  }
+}
 .el-table {
   color: #dce3ed;
   background-color: #393f4b;
@@ -44,6 +57,67 @@
 }
 .el-table--enable-row-hover .el-table__body tr:hover>td {
   background-color: #393f4b;
+}
+.el-table__fixed-header-wrapper thead div {
+  color: #adb1b5;
+  background-color: #393f4b;
+}
+.el-pagination {
+  button,
+  span {
+    color: #909bad;
+  }
+  button{
+    &:hover {
+      color: #f48834;
+      border: 1px solid #f48834;
+    }
+    &.disabled {
+      color: #909bad;
+      background-color: #3e4553;
+      &:hover {
+        border: 1px solid #909bad;
+      }
+    }
+  }
+  .btn-next,
+  .btn-prev {
+    margin: 0 2px;
+    border: 1px solid #909bad;
+    border-radius: 0;
+    background: inherit;
+  }
+}
+.el-pager {
+  li {
+    margin: 0 2px;
+    background: inherit;
+    border: 1px solid #909bad;
+    color: #909bad;
+    &.active {
+      border-color: #f48834;
+      background-color: #f48834;
+      &+li {
+        border: 1px solid #909bad;
+        &:hover {
+          border: 1px solid #f48834;
+        }
+      }
+    }
+    &:hover {
+      color: #f48834;
+      border: 1px solid #f48834;
+    }
+  }
+}
+.el-pagination__editor {
+  background: inherit;
+  border: 1px solid #909bad;
+  color: #909bad;
+  &:focus {
+    color: #f48834;
+    border-color: #f48834;
+  }
 }
 .wrap-box {
   min-width: 1000px;
@@ -554,7 +628,7 @@
 .index-count-more {
   line-height: 38px;
   color: #adb1b5;
-  background-color: #393f4b;
+  background-color: #353b47;
   border-top: 0;
   .more-btn {
     margin-right: 24px;
@@ -563,9 +637,8 @@
 }
 /* 分页 */
 .page-box {
-  padding: 8px 20px; 
-  border: 1px solid #dfe6ec;
-  border-top: 0;
+  padding: 8px 20px;
+  background: #353b47;
 }
 .table-normal-btn {
   padding: 8px 18px;
@@ -591,48 +664,78 @@
   .table-add-btn {
     margin-bottom: 10px;
     padding: 9px 10px 9px 30px;
+    color: #f48834;
+    border: 1px solid #f48834;
+    border-radius: 18px;
     background: url(../images/btn_add_icon.png) no-repeat 10px center;
     &.el-button:hover {
+      color: #ff760c;
+      border: 1px solid #ff760c;
       background: url(../images/btn_add_icon_hover.png) no-repeat 10px center;
     }
   }
   .table-del-btn {
     margin-bottom: 10px;
     padding: 9px 10px 9px 30px;
+    color: #f48834;
+    border: 1px solid #f48834;
+    border-radius: 18px;
     background: url(../images/btn_delete_icon.png) no-repeat 10px center;
     &.el-button:hover {
+      color: #ff760c;
+      border: 1px solid #ff760c;
       background: url(../images/btn_delete_icon_hover.png) no-repeat 10px center;
     }
   }
   .table-import-btn {
     margin-bottom: 10px;
     padding: 9px 10px 9px 30px;
+    color: #f48834;
+    border: 1px solid #f48834;
+    border-radius: 18px;
     background: url(../images/btn_import_icon.png) no-repeat 10px center;
     &.el-button:hover {
+      color: #ff760c;
+      border: 1px solid #ff760c;
       background: url(../images/btn_import_icon_hover.png) no-repeat 10px center;
     }
   }
   .table-export-btn {
     margin-bottom: 10px;
     padding: 9px 10px 9px 30px;
+    color: #f48834;
+    border: 1px solid #f48834;
+    border-radius: 18px;
     background: url(../images/btn_export_icon.png) no-repeat 10px center;
     &.el-button:hover {
+      color: #ff760c;
+      border: 1px solid #ff760c;
       background: url(../images/btn_export_icon_hover.png) no-repeat 10px center;
     }
   }
   .table-set-btn {
     margin-bottom: 10px;
     padding: 9px 10px 9px 30px;
+    color: #f48834;
+    border: 1px solid #f48834;
+    border-radius: 18px;
     background: url(../images/btn_setting_icon.png) no-repeat 10px center;
     &.el-button:hover {
+      color: #ff760c;
+      border: 1px solid #ff760c;
       background: url(../images/btn_setting_icon_hover.png) no-repeat 10px center;
     }
   }
   .table-police-btn {
     margin-bottom: 10px;
     padding: 9px 10px 9px 30px;
+    color: #f48834;
+    border: 1px solid #f48834;
+    border-radius: 18px;
     background: url(../images/btn_police_icon.png) no-repeat 10px center;
     &.el-button:hover {
+      color: #ff760c;
+      border: 1px solid #ff760c;
       background: url(../images/btn_police_icon_hover.png) no-repeat 10px center;
     }
   }
@@ -650,15 +753,11 @@
 .content-subtitle {
   height: 32px;
   line-height: 32px;
-  padding-left: 36px;
-  background: #dce9f4 url(../images/remind_title_icon.png) no-repeat 10px center;
-  border: 1px solid #ccc;
+  font-size: 20px;
+  color: #d6dde7;
 }
 .search-box {
   padding-bottom: 13px;
-  background: #f5f5f5;
-  border: 1px solid #dcdcdc;
-  border-top: 0;
   .el-form-item {
     margin-bottom: 0;
     padding: 12px 10px 0;
@@ -686,10 +785,17 @@
   .search-export-btn {
     margin-top: 32px;
     margin-left: 10px;
-    padding: 12px 10px 9px 30px;
-    background: #f9f9f9 url(../images/btn_export_icon.png) no-repeat 10px center;
+    padding: 0 15px 0 30px;
+    line-height: 33px;
+    font-size: 15px;
+    color: #f48834;
+    border: 1px solid #f48834;
+    border-radius: 18px;
+    background: url(../images/btn_export_icon.png) no-repeat 10px center;
     &.el-button:hover {
-      background: #f9f9f9 url(../images/btn_export_icon_hover.png) no-repeat 10px center;
+      color: #ff760c;
+      border: 1px solid #ff760c;
+      background: url(../images/btn_export_icon_hover.png) no-repeat 10px center;
     }
   }
   // 多选择问题处理
@@ -723,9 +829,14 @@
 .search-export-chart-btn {
   margin-bottom: 10px;
   padding: 12px 10px 9px 30px;
-  background: #f9f9f9 url(../images/btn_export_icon.png) no-repeat 10px center;
+  color: #f48834;
+  border: 1px solid #f48834;
+  border-radius: 18px;
+  background: url(../images/btn_export_icon.png) no-repeat 10px center;
   &.el-button:hover {
-    background: #f9f9f9 url(../images/btn_export_icon_hover.png) no-repeat 10px center;
+    color: #ff760c;
+    border: 1px solid #ff760c;
+    background: url(../images/btn_export_icon_hover.png) no-repeat 10px center;
   }
 }
 /* 灰色弹窗 */
@@ -733,10 +844,13 @@
   .el-dialog {
     width: 80%;
     margin-bottom: 0;
+    background: #353b47;
   }
   .el-dialog__header {
-    background: #f1f1f1;
-    padding: 12px 20px;
+    padding: 12px 20px 0;
+  }
+  .el-dialog__body {
+    padding-top: 12px;
   }
   .echarts-box {
     width: 100%;
@@ -1402,10 +1516,6 @@
 /* 修改密码 */
 .edit-box {
   padding-bottom: 12px;
-  background: #f5f5f5;
-  border: 1px solid #dcdcdc;
-  border-top: 0;
-  text-align: center;
   .edit-form-box {
     display: inline-block;
     width: 280px;
@@ -1444,7 +1554,9 @@
 .vcharts-box {
   width: 100%;
   height: 600px;
-  margin: 50px auto;
+  margin: 30px auto;
+  padding: 20px 0;
+  background: #353b47;
 }
 .vcharts-box .echarts-box {
   width: 100%;
@@ -1463,9 +1575,6 @@
 /* 档案管理 */
 .content-ctrl {
   padding: 16px 0;
-}
-.content-form-box {
-  border: 1px solid #dcdcdc;
 }
 .content-form-box.margin-top {
   margin-top: 20px;

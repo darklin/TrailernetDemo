@@ -22,7 +22,6 @@
       <el-button class="table-set-btn" @click="deviceHandle">{{$t('device.deviceSetting')}}</el-button>
       <el-table
         :data="countData"
-        border
         style="width: 100%"
         @selection-change="handleSelectionChange">
         <el-table-column

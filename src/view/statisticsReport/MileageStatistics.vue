@@ -35,7 +35,6 @@
     <div class="table-box">
       <el-table
         :data="countData"
-        border
         style="width: 100%"
         @sort-change="sortChange">
         <el-table-column
@@ -77,7 +76,6 @@
 </template>
 
 <script>
-let unit = ''
 let tableData = []
 export default {
   name: 'mileage-statistics',
@@ -93,6 +91,7 @@ export default {
         page: 1,
         pagesize: 10
       },
+      unit: '',
       isLoading: false,
       currentPage: 1,
       totalRecord: 1,
@@ -116,16 +115,16 @@ export default {
     initcharts (data) {
       let LicensePlate = []
       let runMilie = []
-      let runMilieValue = this.$t('common.runMilage') + ' (' + unit + ')'
+      let runMilieValue = this.$t('common.runMilage') + ' (' + this.unit + ')'
       let totalMilie = []
-      let totalMilieValue = this.$t('common.totalRunMileage') + ' (' + unit + ')'
+      let totalMilieValue = this.$t('common.totalRunMileage') + ' (' + this.unit + ')'
       data.forEach(item => {
         LicensePlate.push(item['LicensePlate'])
         runMilie.push(item['runMilie'])
         totalMilie.push(item['totalMilie'])
       })
       let chart = this.$echarts.init(this.$refs['echarts'])
-      var colors = ['#5793f3', '#d14a61']
+      var colors = ['#f48532', '#03a9f3']
       let option = {
         color: colors,
         title: {},
@@ -146,10 +145,21 @@ export default {
             magicType: {show: true, type: ['line', 'bar']},
             restore: {show: true},
             saveAsImage: {show: true, name: this.$t('report.mileageStatistics')}
+          },
+          iconStyle: {
+            normal: {
+              borderColor: '#95a2b3'
+            },
+            emphasis: {
+              borderColor: '#f48834'
+            }
           }
         },
         calculable: true,
         legend: {
+          textStyle: {
+            color: '#97a3b4'
+          },
           data: [runMilieValue, totalMilieValue],
           itemGap: 5
         },
@@ -162,12 +172,23 @@ export default {
         xAxis: [
           {
             type: 'category',
-            data: LicensePlate
+            data: LicensePlate,
+            axisLine: {
+              show: false
+            }
           }
         ],
         yAxis: [
           {
             type: 'value',
+            splitLine: {
+              lineStyle: {
+                color: ['#393f4b']
+              }
+            },
+            axisLine: {
+              show: false
+            },
             axisLabel: {
               formatter: (a) => {
                 a = +a
@@ -178,11 +199,18 @@ export default {
             }
           }
         ],
+        textStyle: {
+          color: '#87868b'
+        },
         dataZoom: [
           {
             show: true,
             start: 0,
             end: 90,
+            borderColor: '#454a4d',
+            textStyle: {
+              color: '#87868b'
+            },
             height: 20
           },
           {
@@ -192,6 +220,10 @@ export default {
           },
           {
             show: true,
+            borderColor: '#454a4d',
+            textStyle: {
+              color: '#87868b'
+            },
             yAxisIndex: 0,
             filterMode: 'empty',
             width: 20,
@@ -228,7 +260,7 @@ export default {
         url: '/mileageReport/data',
         data: this.searchForm,
         success: data => {
-          unit = this.getUnit(data['Unit'] || '')
+          this.getUnit(data['Unit'])
           tableData = data['Rows'] || []
           this.countData = tableData.slice(0, 10)
           this.totalRecord = tableData.length
@@ -237,13 +269,11 @@ export default {
       })
     },
     getUnit (flag) {
-      this.unit = ''
       if (flag === 'false') {
         this.unit = 'km'
       } else {
         this.unit = 'mile'
       }
-      return this.unit
     },
     pageHandle (page) {
       this.countData = tableData.slice(10 * (page - 1), 10 * page)

@@ -12,7 +12,6 @@
       <div class="index-title">定位信息汇总</div>
       <el-table
         :data="orgData"
-        border
         style="width: 100%"
         >
         <el-table-column

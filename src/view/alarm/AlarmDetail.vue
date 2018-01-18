@@ -51,7 +51,6 @@
       <el-button class="table-set-btn" @click="alarmHandle">{{$t('carAlarm.alarmSetting')}}</el-button>
       <el-table
         :data="countData"
-        border
         style="width: 100%"
         @selection-change="handleSelectionChange">
         <el-table-column

@@ -24,7 +24,6 @@
       <el-button class="table-export-btn" @click="exportHandle">{{$t('car.export')}}</el-button>
       <el-table
         :data="countData"
-        border
         style="width: 100%"
         @selection-change="handleSelectionChange">
         <el-table-column

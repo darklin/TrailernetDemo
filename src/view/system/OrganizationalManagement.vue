@@ -12,7 +12,6 @@
     <div class="table-box">
       <el-table
         :data="countData"
-        border
         style="width: 100%">
         <el-table-column
           type="index"

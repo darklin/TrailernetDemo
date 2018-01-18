@@ -35,7 +35,6 @@
     <div class="table-box">
       <el-table
         :data="countData"
-        border
         style="width: 100%"
         @sort-change="sortChange">
         <el-table-column
@@ -71,7 +70,6 @@
 </template>
 
 <script>
-let unit = ''
 let tableData = []
 export default {
   name: 'average-statistics',
@@ -87,6 +85,7 @@ export default {
         page: 1,
         pagesize: 10
       },
+      unit: '',
       isLoading: false,
       currentPage: 1,
       totalRecord: 1,
@@ -110,13 +109,13 @@ export default {
     initcharts (data) {
       let LicensePlate = []
       let average = []
-      let averageValue = this.$t('report.averageStatistics') + ' (' + unit + '/h)'
+      let averageValue = this.$t('report.averageStatistics') + ' (' + this.unit + '/h)'
       data.forEach(item => {
         LicensePlate.push(item['LicensePlate'])
         average.push(item['average'].toFixed(2))
       })
       let chart = this.$echarts.init(this.$refs['echarts'])
-      var colors = ['#5793f3', '#d14a61']
+      var colors = ['#f48532', '#03a9f3']
       let option = {
         color: colors,
         title: {},
@@ -137,10 +136,21 @@ export default {
             magicType: {show: true, type: ['line', 'bar']},
             restore: {show: true},
             saveAsImage: {show: true, name: averageValue}
+          },
+          iconStyle: {
+            normal: {
+              borderColor: '#95a2b3'
+            },
+            emphasis: {
+              borderColor: '#f48834'
+            }
           }
         },
         calculable: true,
         legend: {
+          textStyle: {
+            color: '#97a3b4'
+          },
           data: [averageValue],
           itemGap: 5
         },
@@ -153,12 +163,23 @@ export default {
         xAxis: [
           {
             type: 'category',
-            data: LicensePlate
+            data: LicensePlate,
+            axisLine: {
+              show: false
+            }
           }
         ],
         yAxis: [
           {
             type: 'value',
+            splitLine: {
+              lineStyle: {
+                color: ['#393f4b']
+              }
+            },
+            axisLine: {
+              show: false
+            },
             axisLabel: {
               formatter: (a) => {
                 a = +a
@@ -168,11 +189,18 @@ export default {
             }
           }
         ],
+        textStyle: {
+          color: '#87868b'
+        },
         dataZoom: [
           {
             show: true,
             start: 0,
             end: 90,
+            borderColor: '#454a4d',
+            textStyle: {
+              color: '#87868b'
+            },
             height: 20
           },
           {
@@ -182,6 +210,10 @@ export default {
           },
           {
             show: true,
+            borderColor: '#454a4d',
+            textStyle: {
+              color: '#87868b'
+            },
             yAxisIndex: 0,
             filterMode: 'empty',
             width: 20,
@@ -212,7 +244,7 @@ export default {
         url: '/aveageSpeed/data',
         data: this.searchForm,
         success: data => {
-          unit = this.getUnit(data['Unit'] || '')
+          this.getUnit(data['Unit'])
           tableData = data['Rows'] || []
           tableData.forEach(item => {
             if (item['average'] >= 90) {
@@ -226,13 +258,11 @@ export default {
       })
     },
     getUnit (unit) {
-      this.unit = ''
       if (unit === 'false') {
         this.unit = 'km'
       } else {
         this.unit = 'mile'
       }
-      return this.unit
     },
     pageHandle (page) {
       this.countData = tableData.slice(10 * (page - 1), 10 * page)
