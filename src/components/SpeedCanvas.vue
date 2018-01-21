@@ -1,7 +1,7 @@
 <template>
   <div class="canvas-box">
     <div class="canvas-content" v-if="isOpen">
-      <div class="canvas-panel" style="background: #fff;" v-if="listLen">
+      <div class="canvas-panel" v-if="listLen">
         <div ref="echarts" :style="`width: 600px;height: ${(dateArr.length * 50) + 60}px;`"></div>
       </div>
       <div class="empty-text" v-else>{{$t('locu.noDate')}}</div>
@@ -323,6 +323,9 @@ export default {
             },
             yAxis: {
               data: categories1
+            },
+            textStyle: {
+              color: '#dce3ed'
             },
             series: [{
               type: 'custom',

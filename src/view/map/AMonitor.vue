@@ -42,7 +42,6 @@
       <div class="monitor-table-body" v-if="isTableOpen">
         <el-table
           :data="tableData"
-          border
           :row-class-name="highlightRow"
           style="width: 100%">
           <el-table-column
@@ -140,8 +139,10 @@
               <el-option value="7" :label="$t('golbal.offline')"></el-option>
             </el-select>
           </el-form-item>
+          <el-form-item>
+            <el-button class="search-btn" icon="search" @click="searchHandle">{{$t('common.search')}}</el-button>
+          </el-form-item>
         </el-form>
-        <el-button class="search-btn" icon="search" @click="searchHandle">{{$t('common.search')}}</el-button>
       </div>
       <!-- 车辆列表(树结构) -->
       <el-tree

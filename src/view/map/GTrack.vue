@@ -10,7 +10,6 @@
       <div class="monitor-table-body" v-if="isTableOpen">
         <el-table
           :data="tableData"
-          border
           style="width: 100%">
           <el-table-column
             type="index"

@@ -11,7 +11,6 @@
       <div class="monitor-table-body" v-if="isTableOpen">
         <el-table
           :data="tableData"
-          border
           :row-class-name="highlightRow"
           @row-click="rowHandle"
           style="width: 100%">
@@ -97,22 +96,20 @@
           </el-form-item>
         </el-form>
       </div>
-      <div class="trace-play-slider">
-        <div class="clearfix">
-          <div class="start-point-mark fl"></div>
-          <el-slider v-model="progress" :show-tooltip="false" :max="sliderSize"></el-slider>
-          <div class="end-point-mark fr"></div>
-        </div>
+    </div>
+    <div class="trace-play-slider clearfix">
+      <div class="trace-play-ctrl fl">
+        <div class="rewind-btn" @click="backward"></div>
+        <div class="play-btn" :class="{'pause-btn': playStatus !== 'play'}" @click="drawPath"></div>
+        <div class="forward-btn" @click="forward"></div>
+      </div>
+      <div class="fl">
+        <el-slider v-model="progress" :show-tooltip="false" :max="sliderSize"></el-slider>
         <div class="trace-play-point clearfix">
           <div class="point-text start-point fl">{{$t('loca.startPoint')}}</div>
           <div class="point-text end-point fr">{{$t('loca.endPoint')}}</div>
         </div>
         <div class="trace-play-speed">{{'x' + playSpeed}}</div>
-        <div class="trace-play-ctrl">
-          <div class="rewind-btn" @click="backward"></div>
-          <div class="play-btn" :class="{'pause-btn': playStatus !== 'play'}" @click="playHandle"></div>
-          <div class="forward-btn" @click="forward"></div>
-        </div>
       </div>
     </div>
     <div class="monitor-search-btn" @click.stop="searchOpen" v-show="!isSearchOpen"></div>
