@@ -18,6 +18,18 @@
     border-top: 0;
   }
 }
+.el-input__inner {
+  border-radius: 18px;
+  &:focus {
+    border-color: #f48834;
+  }
+}
+.el-select .el-input__inner:focus {
+    border-color: #f48834;
+}
+.el-form-item__label {
+  color: #d6dde7;
+}
 .el-button--text {
   color: #f48834;
   &:focus,
@@ -48,6 +60,9 @@
   }
   tr {
     background-color: #353b47;
+    &.hover-row>td {
+      background-color: #393f4b;
+    }
   }
 }
 .el-table__footer-wrapper thead div,
@@ -61,6 +76,13 @@
 .el-table__fixed-header-wrapper thead div {
   color: #adb1b5;
   background-color: #393f4b;
+}
+.el-table__fixed-right::before,
+.el-table__fixed::before {
+  background-color: inherit;
+}
+.el-table__fixed-right {
+  box-shadow: -1px 0 8px #454a4d;
 }
 .el-pagination {
   button,
@@ -1516,15 +1538,23 @@
 /* 修改密码 */
 .edit-box {
   padding-bottom: 12px;
+  .el-upload--picture-card {
+    width: 168px;
+    height: 168px;
+    &:hover {
+      border-color: #f48834;
+      color: #f48834;
+    }
+  }
   .edit-form-box {
     display: inline-block;
-    width: 280px;
+    width: 400px;
     padding-top: 32px;
     .upload-box {
-      width: 145px;
+      width: 165px;
       .avatar {
-        width: 145px;
-        height: 145px;
+        width: 165px;
+        height: 165px;
         display: block;
       }
     }
@@ -1533,8 +1563,8 @@
       line-height: 20px;
     }
     .logo-uploader {
-      width: 148px;
-      height: 108px;
+      width: 168px;
+      height: 128px;
       padding-top: 40px;
       line-height: 24px;
       .uploader-text {
@@ -1545,9 +1575,11 @@
   }
   .edit-confirm-btn {
     width: 100%;
-    background: #e3751e;
-    border: 1px solid #e3751e;
     color: #fff;
+    border-radius: 18px;
+    border: 0;
+    background: -webkit-linear-gradient(left, #f48834, #f0581c);
+    background: linear-gradient(to right, #f48834, #f0581c);
   }
 }
 /* echarts */
