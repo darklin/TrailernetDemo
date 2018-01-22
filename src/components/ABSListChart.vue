@@ -94,6 +94,9 @@ export default {
                 show: false
               }
             },
+            textStyle: {
+              color: '#87868b'
+            },
             series: [
               {
                 name: this.$t('abs.echart.workTimes'),

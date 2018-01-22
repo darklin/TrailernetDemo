@@ -80,7 +80,10 @@ export default {
           chart.setOption({
             title: {
               text: this.$t('psi.echart.psiWorkStatus'),
-              left: 'center'
+              left: 'center',
+              textStyle: {
+                color: '#87868b'
+              }
             },
             tooltip: {},
             xAxis: {
@@ -98,6 +101,9 @@ export default {
                   return texts.join('-')
                 }
               }
+            },
+            textStyle: {
+              color: '#87868b'
             },
             dataZoom: [{
               type: 'slider',
@@ -126,6 +132,14 @@ export default {
             },
             yAxis: {
               splitNumber: 1,
+              splitLine: {
+                lineStyle: {
+                  color: ['#393f4b']
+                }
+              },
+              axisLine: {
+                show: false
+              },
               axisLabel: {
                 formatter: function (value, index) {
                   if (value === 0) {

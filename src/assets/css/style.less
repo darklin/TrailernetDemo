@@ -30,8 +30,28 @@
 .el-select .el-input__inner:focus {
     border-color: #f48834;
 }
+.el-select-dropdown.is-multiple .el-select-dropdown__item.selected {
+  color: #f48834;
+}
+.el-select-dropdown__item.selected {
+  background-color: #f48834;
+  &.hover {
+    background-color: #f48834;
+  }
+}
+.el-tag--primary {
+  color: #f48834;
+  background-color: rgba(244, 136, 52, .1);
+  border-color: rgba(244, 136, 52, .2);
+  .el-tag__close:hover {
+    background-color: #f48834;
+  }
+}
 .el-form-item__label {
   color: #8f9bb1;
+}
+.el-form-item__content {
+  height: 36px;
 }
 .el-button--text {
   color: #f48834;
@@ -44,6 +64,21 @@
   &:focus .el-dialog__close,
   &:hover .el-dialog__close {
     color: #f48834;
+  }
+}
+.el-message-box {
+  background-color: #353b47;
+  .el-message-box__headerbtn {
+    .el-message-box__close {
+      color: #bfcbd9;
+    }
+    &:focus .el-message-box__close,
+    &:hover .el-message-box__close {
+      color: #f48834;
+    }
+  }
+  .el-message-box__content {
+    color: #8f9bb1;
   }
 }
 .el-table {
@@ -1575,6 +1610,9 @@
       color: #f48834;
     }
   }
+  .el-form-item__content {
+    height: inherit;
+  }
   .edit-form-box {
     display: inline-block;
     width: 400px;
@@ -1636,16 +1674,29 @@
 /* 档案管理 */
 .content-ctrl {
   padding: 16px 0;
+  .table-normal-btn {
+    border-radius: 16px;
+    border: 0;
+    color: #fff;
+    background: -webkit-linear-gradient(left, #f48834, #f0581c);
+    background: linear-gradient(to right, #f48834, #f0581c);
+    &:hover {
+      border: 0;
+      color: #fff;
+    }
+  }
 }
 .content-form-box.margin-top {
   margin-top: 20px;
 }
 .content-form-title {
-  line-height: 40px;
-  padding-left: 16px;
+  line-height: 32px;
+  margin: 4px 0;
+  padding-left: 12px;
   font-size: 16px;
-  color: #333;
-  background: #dcdcdc;
+  color: #909bad;
+  background-color: #393f4b;
+  border-left: 3px solid #f48834;
 }
 .info-form-box {
   width: 1100px;
@@ -1683,8 +1734,10 @@
   }
   .info-confirm-btn {
     width: 300px;
-    background: #e3751e;
-    border: 1px solid #e3751e;
+    border-radius: 18px;
+    background: -webkit-linear-gradient(left, #f48834, #f0581c);
+    background: linear-gradient(to right, #f48834, #f0581c);
+    border: 0;
     color: #fff;
   }
   &.large-label {
@@ -1702,7 +1755,7 @@
     }
   }
   .info-form-item {
-    border-bottom: 1px solid #dcdcdc;
+    border-bottom: 1px solid #909bad;
     margin-bottom: 16px;
     .info-form-title {
       line-height: 16px;
@@ -1710,8 +1763,7 @@
       margin-left: 16px;
       margin-bottom: 20px;
       font-size: 16px;
-      color: #ff8626;
-      border-left: 4px solid #ff8626;
+      color: #d6dde7;
     }
   }
 }
@@ -1773,47 +1825,67 @@
   .info-confirm-btn {
     width: 200px;
     background: #2b3034;
-    border: 1px solid #2b3034;
+    border: 0;
     color: #fff;
   }
 }
 .info-form-box.single-form-box {
   width: 500px;
+  .el-form-item__content {
+    height: inherit;
+  }
 }
 .delete-warn-box {
+  &.el-message-box {
+    background-color: #353b47;
+  }
   .el-message-box__header {
     line-height: 16px;
     padding: 12px 20px;
-    background: #24282b;
     .el-message-box__title {
       font-weight: normal;
-      color: #fff;
+      color: #bfcbd9;
     }
     .el-message-box__headerbtn {
       top: 14px;
+      .el-message-box__close {
+        color: #bfcbd9;
+      }
+      &:focus .el-message-box__close,
+      &:hover .el-message-box__close {
+        color: #f48834;
+      }
     }
   }
   .el-message-box__content {
     font-size: 16px;
+    color: #8f9bb1;
   }
   .el-button--default {
-    color: #1f2d3d;
-    border: 1px solid #c4c4c4;
+    min-width: 80px;
+    color: #fff;
+    border-radius: 18px;
+    background: -webkit-linear-gradient(left, #f48834, #f0581c);
+    background: linear-gradient(to right, #f48834, #f0581c);
+    border: 0;
   }
   .el-button--primary {
-    background: #24282b;
-    color: #fff;
-    border: 1px solid #24282b;
+    border: 0;
   }
 }
 /* auth */
 .auth-tree {
   border: 0;
   margin-bottom: 36px;
+  background-color: #393f4b;
+  color: #909bad;
+  .el-tree-node__content:hover {
+    background-color: #3c4451;
+  }
   .el-checkbox__input.is-checked .el-checkbox__inner,
   .el-checkbox__input.is-indeterminate .el-checkbox__inner {
-    background: #2b3034;
-    border-color: #17191b;
+    background: #4d5667;
+    border-color: #353b47;
   }
 }
 .auth-menu {
@@ -1932,6 +2004,7 @@
 }
 .dialog-set {
   width: 650px;
+  background-color: #353b47;
   &.dialog-device-set {
     width: 560px;
     .el-dialog__body .el-input__inner {
@@ -1941,11 +2014,10 @@
   .el-dialog__header {
     padding-top: 0;
     line-height: 44px;
-    background: #242628;
     .el-dialog__title {
       font-weight: normal;
       font-size: 16px;
-      color: #d26b1a;
+      color: #bfcbd9;
     }
   }
   .el-dialog__body {
@@ -1960,14 +2032,15 @@
     .el-input__inner {
       width: 60px;
       height: 32px;
-      border-radius: 0;
+      border-radius: 16px;
       padding: 3px 5px;
     }
     .el-input-group__append {
       border: 0;
       padding-left: 3px;
       padding-right: 0;
-      color: #333;
+      background: inherit;
+      color: #bfcbd9;
     }
 
     .el-radio-button__inner {
@@ -1993,8 +2066,12 @@
       margin: 12px 20px 0;
       padding: 0;
       font-size: 15px;
-      color: #242628;
-      border: 1px solid #242628;
+      color: #fff;
+      border: 0;
+      border-radius: 16px;
+      background: -webkit-linear-gradient(left, #f48834, #f0581c);
+      background: -o-linear-gradient(left, #f48834, #f0581c);
+      background: linear-gradient(to right, #f48834, #f0581c);
     }
   }
 }
@@ -2035,7 +2112,7 @@
 }
 /* import */
 .vehicle-content-wrap {
-  border-bottom: 1px solid #dcdcdc;
+  border-bottom: 1px solid #909bad;
 }
 .vehicle-import,
 .vehicle-choice,
@@ -2046,21 +2123,22 @@
   .vehicle-title {
     width: 86px;
     font-size: 15px;
-    color: #333;
+    color: #d6dde7;
   }
 }
 .vehicle-import {
   .el-upload-dragger {
-    border: 1px dashed #a2a2a2;
+    border: 1px dashed #909bad;
+    background-color: #393f4b;
   }
   .el-upload-title {
     line-height: 24px;
     font-size: 14px;
-    color: #666;
+    color: #909bad;
   }
   .el-upload-text {
     font-size: 13px;
-    color: #666;
+    color: #909bad;
   }
   .vehicle-download-btn {
     width: 200px;
@@ -2070,13 +2148,16 @@
     padding: 0;
     font-size: 14px;
     color: #fff;
-    background: #e04f4f;
+    border-radius: 17px;
+    background: -webkit-linear-gradient(left, #f48834, #f0581c);
+    background: linear-gradient(to right, #f48834, #f0581c);
     border: 0;
   }
 }
 .vehicle-tips .vehicle-tips-content p {
   line-height: 20px;
   font-size: 13px;
+  color: #909bad;
 }
 .vehicle-ctrl .el-button {
   width: 100px;
@@ -2086,7 +2167,9 @@
   padding: 0;
   font-size: 14px;
   color: #fff;
-  background: #f18b39;
+  border-radius: 17px;
+  background: -webkit-linear-gradient(left, #f48834, #f0581c);
+  background: linear-gradient(to right, #f48834, #f0581c);
   border: 0;
 }
 // 去掉百度地图底部版权样式
