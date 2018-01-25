@@ -164,8 +164,8 @@
           <template scope="scope">
             <!-- <i class="el-icon-edit" @click="editHandle(scope.row.CarID)"></i>&nbsp;&nbsp;
             <i class="el-icon-delete" @click="deleteHandle(scope.row.CarID)"></i>-->
-            <el-button size="small" type="text" @click="editHandle(scope.row.CarID)">{{$t('common.edit')}}</el-button>
-            <el-button size="small" type="text" @click="deleteHandle(scope.row.CarID)">{{$t('common.delete')}}</el-button>
+            <el-button icon="edit" size="small" type="text" @click="editHandle(scope.row.CarID)">{{$t('common.edit')}}</el-button>
+            <el-button icon="delete" size="small" type="text" @click="deleteHandle(scope.row.CarID)">{{$t('common.delete')}}</el-button>
           </template>
         </el-table-column>
       </el-table>

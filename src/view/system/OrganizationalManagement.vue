@@ -44,9 +44,9 @@
           :label="$t('common.operate')"
           width="200">
           <template scope="scope">
-            <el-button type="text" size="small" @click="addOrgHandle(scope.row.OrgID)">{{$t('common.add')}}</el-button>
-            <el-button type="text" size="small" @click="editHandle(scope.row.OrgID)">{{$t('common.edit')}}</el-button>
-            <el-button type="text" size="small" class="table-delete-btn" @click="deleteHandle(scope.row.OrgID)" v-if="scope.row.Level > 1">{{$t('common.delete')}}</el-button>
+            <el-button icon="plus" type="text" size="small" @click="addOrgHandle(scope.row.OrgID)">{{$t('common.add')}}</el-button>
+            <el-button icon="edit" type="text" size="small" @click="editHandle(scope.row.OrgID)">{{$t('common.edit')}}</el-button>
+            <el-button icon="delete" type="text" size="small" class="table-delete-btn" @click="deleteHandle(scope.row.OrgID)" v-if="scope.row.Level > 1">{{$t('common.delete')}}</el-button>
           </template>
         </el-table-column>
       </el-table>
