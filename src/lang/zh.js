@@ -264,6 +264,7 @@ export default{
     clickModifyPassword: '点击修改密码',
     originalPassword: '原密码',
     newPassword: '新密码',
+    comfirmPassword: '确认新密码',
     reEnterNewPassword: '重复密码',
     password: '密码',
     baseDataManagement: '基础数据管理',
@@ -465,6 +466,7 @@ export default{
   },
   carAlarm: {
     PSIState: 'PSI状态',
+    detaile: '详情',
     addressSearch: '地址查询',
     alarmSetting: '报警设置',
     alarmDetail: '报警详情',

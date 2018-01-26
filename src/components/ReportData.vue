@@ -21,7 +21,8 @@ export default {
     // month = month > 9 ? month : '0' + month
     return {
       dialogVisible: false,
-      dateText: date.getFullYear() + '-' + month,
+      // dateText: date.getFullYear() + '-' + month,
+      dateText: ' of Current Month',
       dateTextZh: date.getFullYear() + ' 年 ' + month + ' 月 '
     }
   },
@@ -260,31 +261,31 @@ export default {
         }
       } else {
         if (this.rowNum === 0) {
-          chartText = 'Mileage In ' + this.dateText
+          chartText = 'Mileage ' + this.dateText
         } else if (this.rowNum === 1) {
-          chartText = 'Runing Time In ' + this.dateText
+          chartText = 'Runing Time ' + this.dateText
         } else if (this.rowNum === 2) {
-          chartText = 'Parklin Time In ' + this.dateText
+          chartText = 'Parklin Time ' + this.dateText
         } else if (this.rowNum === 3) {
-          chartText = 'Overspeed Mileage In ' + this.dateText
+          chartText = 'Overspeed Mileage ' + this.dateText
         } else if (this.rowNum === 4) {
-          chartText = 'Overspeed Times In ' + this.dateText
+          chartText = 'Overspeed Times ' + this.dateText
         } else if (this.rowNum === 5) {
-          chartText = 'Average Speed In ' + this.dateText
+          chartText = 'Average Speed ' + this.dateText
         } else if (this.rowNum === 6) {
-          chartText = 'Load And UnLoad Times In ' + this.dateText
+          chartText = 'Load And UnLoad Times ' + this.dateText
         } else if (this.rowNum === 7) {
           chartText = 'Total Mileage '
         } else if (this.rowNum === 8) {
-          chartText = 'Accumulative Of Driving In ' + this.dateText
+          chartText = 'Accumulative Of Running Time '
         } else if (this.rowNum === 9) {
-          chartText = 'Empty Rate In ' + this.dateText
+          chartText = 'Empty Rate ' + this.dateText
         } else if (this.rowNum === 10) {
-          chartText = 'Vehicle Utilization Rate In ' + this.dateText
+          chartText = 'Vehicle Utilization Rate ' + this.dateText
         } else if (this.rowNum === 11) {
-          chartText = 'Ten Thousand KM Braking Times In ' + this.dateText
+          chartText = 'Ten Thousand KM Braking Times ' + this.dateText
         } else if (this.rowNum === 12) {
-          chartText = 'PSI Running Time In ' + this.dateText
+          chartText = 'PSI Running Time ' + this.dateText
         }
       }
     }

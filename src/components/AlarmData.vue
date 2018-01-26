@@ -58,7 +58,7 @@
           :label="$t('carAlarm.messageContent')">
           <template scope="scope">
             {{scope.row.Content}}
-            <el-button type="text" @click="editHandle(scope.row)" v-if="!scope.row.address">{{$t('carAlarm.addressSearch')}}</el-button>
+            <el-button type="text" @click="editHandle(scope.row)" v-if="!scope.row.address">{{$t('carAlarm.detaile')}}</el-button>
           </template>
         </el-table-column>
         <el-table-column
@@ -207,23 +207,23 @@ export default {
     },
     handleContent (item, unit) {
       if (item.AlarmParam === '5') {
-        item['Content'] = 'Address: '
+        item['Content'] = 'Location: '
       } else if (item.AlarmParam === '1') {
-        item['Content'] = 'Address: '
+        item['Content'] = 'Location: '
       } else if (item.AlarmParam === '14') {
         let contents = item['Content'].split(',闲置时间：')
         contents = contents[1].split('天')
-        item['Content'] = contents[0] + 'day(s), Address: '
+        item['Content'] = contents[0] + 'day(s), Location: '
       } else if (item.AlarmParam === '15') {
         let contents = item['Content'].split(',剩余电量：')
         contents = contents[1].split('%')
-        item['Content'] = contents[0] + '%, Address: '
+        item['Content'] = contents[0] + '%, Location: '
       } else if (item.AlarmParam === '16') {
-        item['Content'] = 'Address: '
+        item['Content'] = 'Location: '
       } else if (item.AlarmParam === '30') {
-        item['Content'] = 'Speed: ' + item['Speed'] + (!unit ? ' km/h' : ' mile/h') + ', Address: '
+        item['Content'] = 'Speed: ' + item['Speed'] + (!unit ? ' km/h' : ' mile/h') + ', Location: '
       } else {
-        item['Content'] = this.$t('carAlarm.other') + ', Address: '
+        item['Content'] = this.$t('carAlarm.other') + ', Location: '
       }
     }
   }

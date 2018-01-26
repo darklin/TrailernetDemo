@@ -9,7 +9,7 @@
         <el-form-item :label="$t('sys.newPassword') + ':'" prop="NewPassowrd" :rules="[{required: true, message: $t('sys.newPassword') + $t('common.beRequired')}]">
           <el-input type="password" v-model="userForm.NewPassowrd"></el-input>
         </el-form-item>
-        <el-form-item :label="$t('sys.newPassword') + ':'" prop="ConfirmPassword" :rules="[{required: true, message: $t('sys.newPassword') + $t('common.beRequired')}]">
+        <el-form-item :label="$t('sys.comfirmPassword') + ':'" prop="ConfirmPassword" :rules="[{required: true, message: $t('sys.newPassword') + $t('common.beRequired')}]">
           <el-input type="password" v-model="userForm.ConfirmPassword"></el-input>
         </el-form-item>
         <el-form-item label="">
