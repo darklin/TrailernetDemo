@@ -11,7 +11,7 @@
         <img :src="logoPath">
       </div>
       <div class="shrink-area clearfix">
-        <el-button class="shrink-btn fr" @click="openHandle"></el-button>
+        <el-button class="shrink-btn" @click="openHandle"></el-button>
       </div>
       <el-menu :default-active="menuActive" :default-openeds="openeds" router v-if="isOpen">
         <template v-for="item,key in menus">

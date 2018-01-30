@@ -32,7 +32,7 @@
           :label="$t('common.operate')"
           width="250">
           <template scope="scope">
-            <el-button icon="document" size="small" type="text" @click="roleHandle(scope.row.GroupID)">{{$t('sys.setRights')}}</el-button>
+            <el-button icon="setting" size="small" type="text" @click="roleHandle(scope.row.GroupID)">{{$t('sys.setRights')}}</el-button>
             <el-button icon="edit" size="small" type="text" @click="editHandle(scope.row.GroupID)">{{$t('common.edit')}}</el-button>
             <el-button icon="delete" size="small" type="text" class="table-delete-btn" @click="deleteHandle(scope.row.GroupID)">{{$t('common.delete')}}</el-button>
           </template>

@@ -77,7 +77,7 @@
           <template scope="scope">
             <el-button icon="edit" size="small" type="text" @click="editHandle(scope.row.UserID)">{{$t('common.edit')}}</el-button>
             <!--<el-button size="small" type="text" @click="roleHandle(scope.row.UserID)">{{$t('sys.role')}}</el-button>-->
-            <el-button icon="document" size="small" type="text" @click="resetHandle(scope.row.UserID)">{{$t('sys.resetPassword')}}</el-button>
+            <el-button icon="setting" size="small" type="text" @click="resetHandle(scope.row.UserID)">{{$t('sys.resetPassword')}}</el-button>
             <el-button icon="delete" size="small" type="text" class="table-delete-btn" @click="deleteHandle(scope.row.UserID)">{{$t('common.delete')}}</el-button>
           </template>
         </el-table-column>
