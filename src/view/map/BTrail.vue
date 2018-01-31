@@ -82,10 +82,10 @@
           <el-form-item>
             <el-button class="search-btn fl" icon="search"  @click="playHandle(1)">{{$t('common.search')}}</el-button>
           </el-form-item>
-          <el-form-item>
+          <el-form-item class="search-addr">
             <div class="trace-start-position">{{$t('loca.startPoint')}}: {{startAddr}}</div>
           </el-form-item>
-          <el-form-item>
+          <el-form-item class="search-addr">
             <div class="trace-end-position">{{$t('loca.endPoint')}}: {{endAddr}}</div>
           </el-form-item>
           <el-form-item>
