@@ -255,7 +255,7 @@ export default {
           let {lng, lat} = Transform.wgs2gcj(item.Latitude, item.Longitude)
           item.Longitude = lng
           item.Latitude = lat
-          if (!item.Speed) {
+          if (!parseInt(item.Speed)) {
             // 速度为0且第一个为0的点,记录时间和数据
             if (!flag) {
               flag = true

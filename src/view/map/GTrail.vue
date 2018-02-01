@@ -349,7 +349,7 @@ export default {
               if (item.Temperature === 205) {
                 item.Temperature = 'N/A'
               }
-              if (!item.Speed) {
+              if (!parseInt(item.Speed)) {
                 if (!flag) {
                   flag = true
                   startTime = item['ReportingTime']

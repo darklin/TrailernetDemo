@@ -323,7 +323,7 @@ export default {
                 line++
                 item['CoorType'] = -1
               }
-              if (!item.Speed) {
+              if (!parseInt(item.Speed)) {
                 if (!flag) {
                   flag = true
                   startTime = item['ReportingTime']
