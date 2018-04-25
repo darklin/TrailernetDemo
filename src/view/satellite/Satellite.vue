@@ -170,10 +170,21 @@ export default {
             magicType: {show: true, type: ['line', 'bar']},
             restore: {show: true},
             saveAsImage: {show: true, name: '卫星定位信息'}
+          },
+          iconStyle: {
+            normal: {
+              borderColor: '#95a2b3'
+            },
+            emphasis: {
+              borderColor: '#d14a61'
+            }
           }
         },
         calculable: true,
         legend: {
+          textStyle: {
+            color: '#97a3b4'
+          },
           data: [GPSValue, beiDouValue],
           itemGap: 5
         },
@@ -192,6 +203,11 @@ export default {
         yAxis: [
           {
             type: 'value',
+            splitLine: {
+              lineStyle: {
+                color: ['#393f4b']
+              }
+            },
             axisLabel: {
               formatter: (a) => {
                 a = +a
@@ -202,6 +218,9 @@ export default {
             }
           }
         ],
+        textStyle: {
+          color: '#FFFFFF'
+        },
         dataZoom: [
           {
             show: true,

@@ -23,7 +23,7 @@ export default {
     rankField: 'Ranking',
     rankBtn: 'Ranking>>',
     totalTrailers: 'Total Trailers',
-    optionalScope: 'Optional Scope:'
+    optionalScope: 'Scope:'
   },
   monitor: {
     totalcar: 'Total',
@@ -137,9 +137,9 @@ export default {
     emptyRateStatistics: 'EmptyRun Statistics',
     carUseRate: 'UtilizationRate Statistics',
     boxupStatistics: 'Container Statistics',
-    boxupTime: 'Loading Time',
-    unBoxupTime: 'Unloading Time',
-    overseedTime: 'Offloading Times',
+    boxupTime: 'Loading Times',
+    unBoxupTime: 'Unloading Times',
+    overseedTime: 'Overspeed Times',
     overspeedMileage: 'Overspeed Mileage',
     runTimeLen: 'Running Time',
     parkTimeLen: 'Parking Time'
@@ -320,9 +320,9 @@ export default {
     tireManage: 'Tire Management'
   },
   car: {
-    vehicleInformation: 'VehicleInformation',
-    partInformation: 'PartInformation',
-    productionInformation: 'ProductionInformation',
+    vehicleInformation: 'Vehicle Info',
+    partInformation: 'Part Info',
+    productionInformation: 'Production Info',
     tyreSpec: 'Tire Type',
     frontSuspension: 'Front Overhang',
     maximumLoad: 'Max Load',
@@ -386,7 +386,7 @@ export default {
     wheelNumber: 'Tire No.',
     axleNumber: 'No. Of Axles',
     tractionPinSpecificate: 'Traction Pin Specifications',
-    carBrand: 'Vehicle Brand',
+    boxNo: 'Box No.',
     manufacturer: 'Manufacturer',
     placeOfManufacture: 'Place Of Manufacture',
     productNumber: 'The Production Serial No.',
@@ -406,7 +406,7 @@ export default {
     typeCarNo: 'Please type the vehicleNo',
     gapReport: 'Report Interval',
     overspeed: 'Overspeed Threshold',
-    overspeedDuration: 'OverspeedDuration',
+    overspeedDuration: 'Overspeed Duration',
     updateConfigurate: 'Update Configuration',
     legType: 'Leg Type',
     purchaseDate: 'Purchase Date',
@@ -539,7 +539,7 @@ export default {
     idleCarCondition: 'Idle Condition Of Car',
     idleDays: 'Idle Days',
     lastNotConnectTime: 'Last Report Time',
-    idleDayGT: 'Idle Days Then',
+    idleDayGT: 'Idle Days Than',
     idleCarConditionDetails: 'Idle Trailer'
   },
   load: {
@@ -612,6 +612,12 @@ export default {
     },
     setting: {
       platformSet: 'Platform Set'
+    },
+    coldChain: {
+      tempAlarm: 'Temperature Alarm Statistics',
+      tempMonitor: 'Temperature Monitoring',
+      tempSet: 'Temperature Set',
+      tempMonitorDetail: 'Temperature Monitoring Detail'
     }
   },
   abs: {
@@ -638,5 +644,19 @@ export default {
     statistics: {
       PSIRunTime: 'PSI Total Time(h)'
     }
+  },
+  coldChain: {
+    tempReportInterval: 'Temperature Reporting Interval',
+    highTempSet: 'High Temperature Setting',
+    lowTempSet: 'Low Temperature Setting',
+    no1: 'No.1',
+    no2: 'No.2',
+    no3: 'No.3',
+    no4: 'No.4',
+    no5: 'No.5',
+    no6: 'No.6',
+    no7: 'No.7',
+    no8: 'No.8',
+    chartTitle: 'Temperature Monitoring Detail'
   }
 }

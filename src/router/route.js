@@ -8,6 +8,10 @@ import Monitor from '@/view/Monitor'
 // 大数据
 import BigData from '@/view/BigData'
 import Monitor1 from '@/view/Monitor1'
+// 冷链
+import TempAlarm from '@/view/coldChain/TempAlarm'
+import TempMonitor from '@/view/coldChain/TempMonitor'
+import TempMonitorDetail from '@/view/coldChain/TempMonitorDetail'
 // 历史数据
 import TireMonitor from '@/view/history/TireMonitor'
 import LoadMonitor from '@/view/history/LoadMonitor'
@@ -91,6 +95,10 @@ export default {
   // 大数据
   bigData: {name: 'BigData', component: BigData},
   monitor1: {name: 'Monitor1', component: Monitor1},
+  // 冷链
+  tempAlarm: {name: 'TempAlarm', component: TempAlarm},
+  tempMonitor: {name: 'TempMonitor', component: TempMonitor},
+  tempMonitorDetail: {name: 'TempMonitorDetail', component: TempMonitorDetail},
   // 历史数据
   tireMonitor: {name: 'TireMonitor', component: TireMonitor},
   loadMonitor: {name: 'LoadMonitor', component: LoadMonitor},

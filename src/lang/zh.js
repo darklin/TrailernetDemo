@@ -23,7 +23,7 @@ export default{
     rankField: '排名',
     rankBtn: '详见排名',
     totalTrailers: '车辆总数',
-    optionalScope: '可选范围:'
+    optionalScope: '范围:'
   },
   monitor: {
     totalcar: '车辆总数',
@@ -387,7 +387,7 @@ export default{
     wheelNumber: '轮胎数量',
     axleNumber: '轴数',
     tractionPinSpecificate: '牵引销规格',
-    carBrand: '车辆品牌',
+    boxNo: '车厢编号',
     manufacturer: '生产厂家',
     placeOfManufacture: '制造地',
     productNumber: '生产序号',
@@ -609,6 +609,12 @@ export default{
     },
     setting: {
       platformSet: '平台设置'
+    },
+    coldChain: {
+      tempAlarm: '温度报警统计表',
+      tempMonitor: '实时温度监控',
+      tempSet: '温度设定',
+      tempMonitorDetail: '实时温度监控详情'
     }
   },
   abs: {
@@ -635,6 +641,20 @@ export default{
     statistics: {
       PSIRunTime: 'PSI累计时长(h)'
     }
+  },
+  coldChain: {
+    tempReportInterval: '温度上报间隔',
+    highTempSet: '高温设置',
+    lowTempSet: '低温设置',
+    no1: '一号',
+    no2: '二号',
+    no3: '三号',
+    no4: '四号',
+    no5: '五号',
+    no6: '六号',
+    no7: '七号',
+    no8: '八号',
+    chartTitle: '实时温度监控'
   }
 }
 

@@ -231,6 +231,15 @@ export default {
               if (item.Temperature === 205) {
                 item.Temperature = 'N/A'
               }
+              if (item.boxType === 0) {
+                item['boxType'] = '匹配'
+              } else if (item.boxType === 1) {
+                item['boxType'] = '不匹配'
+              } else if (item.boxType === 2) {
+                item['boxType'] = '未读取到厢体号'
+              } else if (item.boxType === 3) {
+                item['boxType'] = '未录入厢体号'
+              }
               tableData.push(item)
             }
             if (item.value === 3) {
@@ -354,8 +363,8 @@ export default {
                         <div class="map-item"><label>${this.$t('common.state')}:</label><span>${item['status']}</span></div>
                         <div class="map-item"><label>${this.$t('loca.alarmType')}:</label><span>${item['AlarmType']}</span></div>
                         <div class="map-item"><label>${this.$t('common.speedKm')}:</label><span>${item['Speed']}</span></div>
-                        <div class="map-item"><label>GPS:</label><span><a href="javascript:;" id="GPS">${item['GPS']}</a></span></div>
-                        <div class="map-item"><label>${this.$t('monitor.beidou')}:</label><span><a href="javascript:;" id="beidou">${item['Beidou']}</a></span></div>
+                        <div class="map-item"><label>GPS:</label><span><a href="javascript:;" id="GPS" style="color:#f16422">${item['GPS']}</a></span></div>
+                        <div class="map-item"><label>${this.$t('monitor.beidou')}:</label><span><a href="javascript:;" id="beidou" style="color:#f16422">${item['Beidou']}</a></span></div>
                         <div class="map-item"><label>${this.$t('monitor.temperature')}:</label><span>${item['Temperature']}℃</span></div>
                           <div class="map-item"><label>PSI:</label><span>${item['PSIStatus']}</span></div>
                         <div class="map-item"><label>${this.$t('loca.powerSupplyMode')}:</label><span>${this.powerSupplyMode[item['PowerSupplyMode']]}</span></div>

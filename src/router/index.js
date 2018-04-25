@@ -5,7 +5,7 @@ Vue.use(Router)
 
 let route = require('@/router/route').default
 let routes = []
-let ctrlRoute = ['satellite', 'monitor1', 'aTrack', 'aTrail', 'bTrack', 'bTrail', 'gTrack', 'gTrail', 'addVehicle', 'editVehicle', 'importVehicle', 'addUser', 'editUser', 'importUser', 'setRole', 'addOrg', 'editOrg', 'addRole', 'editRole', 'setAuth']
+let ctrlRoute = ['satellite', 'monitor1', 'aTrack', 'aTrail', 'bTrack', 'bTrail', 'gTrack', 'gTrail', 'addVehicle', 'editVehicle', 'importVehicle', 'addUser', 'editUser', 'importUser', 'setRole', 'addOrg', 'editOrg', 'addRole', 'editRole', 'setAuth', 'tempMonitorDetail']
 // 获取缓存菜单信息
 let menus = window.sessionStorage.getItem('menus')
 if (menus) {

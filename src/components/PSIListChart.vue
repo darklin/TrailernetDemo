@@ -43,9 +43,6 @@ export default {
         },
         success: data => {
           var Statistic = data['statistic'] || []
-          console.info(Statistic)
-          console.info(data['max'])
-          console.info(data['min'])
           var labelX = [this.$t('psi.echart.activated'), this.$t('psi.echart.unactivated')]
           let finalDatas = []
           for (let i in Statistic) {
@@ -60,7 +57,6 @@ export default {
               }
             })
           }
-          console.info(finalDatas)
           const renderItem = (params, api) => {
             var yValue = api.value(2)
             var start = api.coord([api.value(0), yValue])

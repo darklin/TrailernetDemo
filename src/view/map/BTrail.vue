@@ -119,6 +119,7 @@
 <script>
 import bMap from '@/map/bmap'
 import mixin from '@/mixins/index'
+import Transform from '@/utils/transform'
 import SpeedCanvas from '@/components/SpeedCanvas'
 export default {
   name: 'b-trail',
@@ -301,6 +302,10 @@ export default {
               if (item.Temperature === 205) {
                 item.Temperature = 'N/A'
               }
+              // 启动百度纠偏 当用百度鹰眼时去掉纠偏
+              let point = Transform.wgs2bd(item.Latitude, item.Longitude)
+              item.Latitude = point.lat
+              item.Longitude = point.lng
               let lat = item.Latitude
               let lng = item.Longitude
               if (index === 0) {

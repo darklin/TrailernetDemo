@@ -1,4 +1,4 @@
-import {loadJS, noop, center, getTime, getPeriod, periodMark} from './util'
+import {loadJS, noop, center, getTime, getPeriod, periodMark, getMin} from './util'
 
 // 加载Google地图JS库
 export const loadMapJS = (url, callback) => {
@@ -401,6 +401,11 @@ export const getMinDistance = (point, pointArr) => {
   return {index, distance}
 }
 
+export const getDistance = (prePoint, point) => {
+  let distance = window.google.maps.geometry.spherical.computeDistanceBetween(new window.google.maps.LatLng(prePoint.lat, prePoint.lng), new window.google.maps.LatLng(point.lat, point.lng))
+  return distance
+}
+
 export default {
   loadMapJS,
   initMap,
@@ -421,5 +426,7 @@ export default {
   getPeriod,
   periodMark,
   getNearDistance,
-  getMinDistance
+  getMinDistance,
+  getMin,
+  getDistance
 }

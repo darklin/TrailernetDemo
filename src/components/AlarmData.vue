@@ -4,12 +4,14 @@
       <el-form :model="searchForm" class="search-form">
         <el-form-item :label="$t('loca.alarmType')" class="fl">
           <el-select v-model="searchForm.alarmType" clearable placeholder="">
-            <el-option :label="$t('carAlarm.alarmEquipment')" value="5"></el-option>
-            <el-option :label="$t('carAlarm.rolloverAlarm')" value="1"></el-option>
             <el-option :label="$t('carAlarm.idleAlarm')" value="14"></el-option>
+            <el-option :label="$t('carAlarm.rolloverAlarm')" value="1"></el-option>
             <!--<el-option :label="$t('carAlarm.collisionAlarm')" value="15"></el-option>-->
-            <el-option :label="$t('carAlarm.lowBatteryAlarm')" value="16"></el-option>
             <el-option :label="$t('carAlarm.overspeedAlarm')" value="30"></el-option>
+            <el-option :label="$t('carAlarm.lowBatteryAlarm')" value="16"></el-option>
+            <el-option :label="$t('carAlarm.alarmEquipment')" value="5"></el-option>
+            <el-option :label="$t('carAlarm.ABSfault')" value="-1"></el-option>
+            <el-option :label="$t('carAlarm.PSIState')" value="-2"></el-option>
           </el-select>
         </el-form-item>
       </el-form>

@@ -161,8 +161,8 @@ export default {
         overspeed: 90,
         overspeedLen: 10,
         offlineReportTimes: 24,
-        ildeLen: 7,
-        psiAlarmTime: 10
+        ildeLen: 168,
+        psiAlarmTime: 3
       },
       isLoading: false,
       currentPage: 1,
@@ -206,7 +206,8 @@ export default {
           overspeed: 90,
           overspeedLen: 10,
           offlineReportTimes: 24,
-          ildeLen: 168
+          ildeLen: 168,
+          psiAlarmTime: 3
         }
         this.visible = true
       }

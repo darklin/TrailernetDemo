@@ -15,8 +15,8 @@
                 <el-option v-for="item,index in zNodes" :label="item.name" :value="item.id" :key="index"></el-option>
               </el-select>
             </el-form-item>
-            <el-form-item :label="$t('car.carBrand') + ':'" prop="VehicleBrand" >
-              <el-input v-model="form.VehicleBrand"></el-input>
+            <el-form-item :label="$t('car.boxNo') + ':'" prop="BoxNo" >
+              <el-input v-model="form.BoxNo"></el-input>
             </el-form-item>
             <el-form-item :label="$t('car.carNo') + ':'" prop="LicensePlate" :rules="{required: true, message: this.$t('car.carNo') + this.$t('common.beRequired'), trigger: 'blur'}">
               <el-input v-model="form.LicensePlate"></el-input>
@@ -100,7 +100,7 @@ export default {
       zNodes: [],
       form: {
         OrgID: '',
-        VehicleBrand: '',
+        BoxNo: '',
         TrailerType: '',
         VericleAlias: '',
         VIN: '',

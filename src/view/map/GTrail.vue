@@ -317,7 +317,7 @@ export default {
           if (!data.length) {
             this.$message(this.$t('locu.noDate'))
           } else {
-            let [line, lineArr, startPoint, flag, startTime, len, firstTime, lastTime, firstMileage, lastMileage, pathArr, pointArr, stopPoint, stopArr, num] = [0, [], '', false, 0, data.length - 1, 0, 0, 0, 0, [], [], null, [], 0]
+            let [prepoint, preTime, distance, timeLenForMin, line, lineArr, startPoint, flag, startTime, len, firstTime, lastTime, firstMileage, lastMileage, pathArr, pointArr, stopPoint, stopArr, num] = ['', 0, 0, 0, 0, [], '', false, 0, data.length - 1, 0, 0, 0, 0, [], [], null, [], 0]
             for (let index = 0; index < data.length; index++) {
             // data.forEach((item, index) => {
               let item = data[index]
@@ -331,8 +331,17 @@ export default {
               if (startPoint.lng - point.lng < -60) {
                 continue
               }
+              if (index === 0) {
+                prepoint = {lat: item.Latitude, lng: item.Longitude}
+                preTime = item['ReportingTime']
+              }
+              distance = gMap.getDistance(prepoint, {lat: item.Latitude, lng: item.Longitude})
+              timeLenForMin = gMap.getMin(preTime, item['ReportingTime'])
+              prepoint = {lat: item.Latitude, lng: item.Longitude}
+              preTime = item['ReportingTime']
               // 将接挂和甩挂的点分开，增加CoorType属性进行区分 -1代表甩挂的点 其他代表接挂
-              if (item.IsConnectingTrailer === 1) {
+              // 将距离大于10kM及上报时间大于10分钟的点分开
+              if (item.IsConnectingTrailer === 1 && distance < 10000 && timeLenForMin < 10) {
                 if (lineArr.indexOf(line) === -1) {
                   lineArr.push(line)
                 }
@@ -437,7 +446,6 @@ export default {
                                         <div class="map-item"><label>${this.$t('common.state')}:</label><span>${item['status']}</span></div>
                                         <div class="map-item"><label>${this.$t('loca.alarmType')}:</label><span>${item['AlarmType']}</span></div>
                                         <div class="map-item"><label>${this.$t('common.speedKm')}:</label><span>${item['Speed']}</span></div>
-                                        <div class="map-item"><label>${this.$t('monitor.temperature')}:</label><span>${item['Temperature']}℃</span></div>
                                         <div class="map-item"><label>PSI:</label><span>${item['PSIStatus']}</span></div>
                                         <div class="map-item"><label>${this.$t('loca.powerSupplyMode')}:</label><span>${this.powerSupplyMode[item['PowerSupplyMode']]}</span></div>
                                         <div class="map-item"><label>${this.$t('loca.dumpEnergy')}:</label><span>${this.trail['SurplusElectricity']}%</span></div>

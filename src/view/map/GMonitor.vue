@@ -226,8 +226,21 @@ export default {
               } else {
                 item['PSIStatus'] = this.$t('psi.echart.activated')
               }
-              if (item.Temperature === 205) {
-                item.Temperature = 'N/A'
+              if (item['Temperature'] !== '') {
+                let myTemp = '['
+                let str = JSON.parse(item['Temperature'])
+                str.forEach(temp => {
+                  if (temp === 6503 || temp === 6503.0 || temp === 6503.5) {
+                    temp = 'N/A'
+                  }
+                  myTemp = myTemp + temp + ','
+                })
+                myTemp = myTemp.substr(0, myTemp.length - 1)
+                myTemp = myTemp + ']'
+                item['Temperature'] = myTemp
+              }
+              if (!item.BoxNo2) {
+                item['BoxNo2'] = 'Empty'
               }
               tableData.push(item)
             }
@@ -358,6 +371,7 @@ export default {
                         <div class="map-item"><label>${this.$t('common.speedKm')}:</label><span>${item['Speed']}</span></div>
                         <div class="map-item"><label>${this.$t('monitor.temperature')}:</label><span>${item['Temperature']}℃</span></div>
                           <div class="map-item"><label>PSI:</label><span>${item['PSIStatus']}</span></div>
+                          <div class="map-item"><label>Container No.:</label><span>${item['BoxNo2']}</span></div>
                         <div class="map-item"><label>${this.$t('loca.powerSupplyMode')}:</label><span>${this.powerSupplyMode[item['PowerSupplyMode']]}</span></div>
                         <div class="map-item"><label>${this.$t('loca.dumpEnergy')}:</label><span>${item['SurplusElectricity']}%</span></div>
                         <div class="map-item"><label>${this.$t('loca.positionTime')}:</label><span>${item['ReportingTime']}</span></div>

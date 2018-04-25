@@ -101,13 +101,6 @@
           header-align="center">
         </el-table-column>
         <el-table-column
-          prop="count"
-          :label="$t('index.totalTrailers')" 
-          align="center"
-          min-width="150"
-          header-align="center">
-        </el-table-column>
-        <el-table-column
           prop="idle"
           :label="$t('carAlarm.idle')" 
           align="center"
